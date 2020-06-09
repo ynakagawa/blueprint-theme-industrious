@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.adobe.aem:aem-sdk-api:2020.6.3636.20200605T111333Z-200604">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/adobe/aem/aem-sdk-api/2020.6.3636.20200605T111333Z-200604/aem-sdk-api-2020.6.3636.20200605T111333Z-200604.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/adobe/aem/aem-sdk-api/2020.6.3636.20200605T111333Z-200604/aem-sdk-api-2020.6.3636.20200605T111333Z-200604-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/adobe/aem/aem-sdk-api/2020.6.3636.20200605T111333Z-200604/aem-sdk-api-2020.6.3636.20200605T111333Z-200604-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

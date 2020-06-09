@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="aem-guides-bp.all" />
+        <module name="aem-guides-bp.core" />
+        <module name="aem-guides-bp.it.launcher" />
+        <module name="aem-guides-bp.it.tests" />
+        <module name="aem-guides-bp.ui.apps" />
+        <module name="aem-guides-bp.ui.apps.structure" />
+        <module name="aem-guides-bp.ui.content" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="aem-guides-bp" target="1.8" />
+      <module name="aem-guides-bp.all" target="1.8" />
+      <module name="aem-guides-bp.core" target="1.8" />
+      <module name="aem-guides-bp.dispatcher.cloud" target="1.8" />
+      <module name="aem-guides-bp.it.launcher" target="1.8" />
+      <module name="aem-guides-bp.it.tests" target="1.8" />
+      <module name="aem-guides-bp.ui.apps" target="1.8" />
+      <module name="aem-guides-bp.ui.apps.structure" target="1.8" />
+      <module name="aem-guides-bp.ui.content" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
