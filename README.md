@@ -35,13 +35,35 @@ Lesson 2
    
 5. Modify all sass files references
    * replace all instances of ../../images/ to ../images
-   * run sass --no-source-map sass:css to update main.css
+   * run sass --no-source-map sass:css to update man.css
 
 6. Modify html & sass for certain AEM HTML
 
    * resources/sass/layout/_menu.scss
         * line 30 .links to .cmp-navigation__group
         * all referenced html files line 28:  class="links" to class="cmp-navigation__group"
+        
+7. Compile with sass to update main.css by running sass --no-source-map sass:css        
+
+8. Create AEM Clientlib structure & import theme
+ 
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/ , create folder clientlib-themes
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes , create folder templated-industrious
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious , create folder resources
+    * create file css.txt & js.txt under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
+         * css.txt add references to css files
+         * jx.txt add references to js files
+    * create a file .content.xml to define AEM node structure under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
+         * add property jcr:primaryType="cq:ClientLibraryFolder"
+         * add property allowProxy="{Boolean}true"
+         * add property categories="[theme.templated-industrious]"
+     
+     
+ 9. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
+    
+ 10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
+ 
+ 
         
  
       
