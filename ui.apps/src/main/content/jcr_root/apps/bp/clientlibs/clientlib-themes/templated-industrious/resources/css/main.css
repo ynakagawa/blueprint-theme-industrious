@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import 'font-awesome.css';
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
 /*
 	Industrious by TEMPLATED
@@ -3088,20 +3089,20 @@ body.is-preload #banner:before {
 #footer a:hover {
   color: #ce1b28;
 }
-#footer .content {
+#footer .cmp-container {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
 }
-#footer .content section {
+#footer .cmp-container .text {
   width: 25%;
 }
-#footer .content section:first-child {
+#footer .cmp-container .text:first-child {
   width: 50%;
   padding-right: 4rem;
 }
-#footer .content section:last-child {
+#footer .cmp-container .text:last-child {
   padding-left: 4rem;
 }
 #footer .copyright {
@@ -3117,16 +3118,16 @@ body.is-preload #banner:before {
   }
 }
 @media screen and (max-width: 980px) {
-  #footer .content {
+  #footer .cmp-container {
     -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-  #footer .content section {
+  #footer .cmp-container .text {
     width: 50%;
   }
-  #footer .content section:first-child {
+  #footer .cmp-container .text:first-child {
     width: 100%;
     padding-right: 0;
   }
@@ -3135,10 +3136,10 @@ body.is-preload #banner:before {
   #footer {
     padding: 3rem 0 1rem 0;
   }
-  #footer .content section {
+  #footer .cmp-container .div {
     width: 100%;
   }
-  #footer .content section:last-child {
+  #footer .cmp-container .div:last-child {
     padding-left: 0;
   }
 }
