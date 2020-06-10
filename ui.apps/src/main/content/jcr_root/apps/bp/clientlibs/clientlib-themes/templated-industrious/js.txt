@@ -13,3 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ###############################################################################
+#base=resources/js
+
+jquery.min.js
+browser.min.js
+breakpoints.min.js
+util.js
+main.js

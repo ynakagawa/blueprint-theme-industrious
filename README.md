@@ -10,6 +10,64 @@ This is the code for the DF Blueprint Reference skin:
 5. Container Component
 6. Embed Component
 
+Lesson 2
+1. Download HTML template-industrious & unpack
+
+2. Re-Arrange folder structure:
+   * assets/css  --> resources/css
+   * assets/fonts   --> resources/fonts
+   * assets/js  --> resources/js
+   * assets/sass  --> resources/sass
+   * images  --> resources/images
+   * html files --> resources/index|generic|elements.html
+
+3. De-compile & modify font-awesome.min.css (I used https://unminify.com)
+   * create file font-awesome.css & paste unminified css & place in resources/css
+   * create file font-awesome.scss & place in resourcessass/
+   * change resources/sass/font-awesome.scss line #7 - #9
+        * ../fonts --> ../../resources/fonts
+   * change reference in resources/sass/main.scss to the correct scss file (line 8)
+        *  @import 'font-awesome.scss';
+       
+4. Modify index html files references
+   * remove all instances of assets/ 
+   * fix bad references to .png files by changing to .jpg
+   
+5. Modify all sass files references
+   * replace all instances of ../../images/ to ../images
+   * run sass --no-source-map sass:css to update man.css
+
+6. Modify html & sass for certain AEM HTML
+
+   * resources/sass/layout/_menu.scss
+        * line 30 .links to .cmp-navigation__group
+        * all referenced html files line 28:  class="links" to class="cmp-navigation__group"
+        
+7. Compile with sass to update main.css by running sass --no-source-map sass:css        
+
+8. Create AEM Clientlib structure & import theme
+ 
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/ , create folder clientlib-themes
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes , create folder templated-industrious
+    * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious , create folder resources
+    * create file css.txt & js.txt under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
+         * css.txt add references to css files
+         * jx.txt add references to js files
+    * create a file .content.xml to define AEM node structure under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
+         * add property jcr:primaryType="cq:ClientLibraryFolder"
+         * add property allowProxy="{Boolean}true"
+         * add property categories="[theme.templated-industrious]"
+     
+     
+ 9. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
+    
+ 10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
+ 
+ 
+        
+ 
+      
+
 
 
 
