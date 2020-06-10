@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import 'font-awesome.css';
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
 /*
 	Industrious by TEMPLATED
@@ -3202,20 +3201,20 @@ body:before {
   padding: 0 1.25rem;
   text-decoration: none;
 }
-#header > nav > a {
+#header > div > a {
   color: inherit;
   display: inline-block;
   padding: 0 0.75rem;
   text-decoration: none;
 }
-#header > nav > a:hover {
+#header > div > a:hover {
   color: #ffffff;
 }
-#header > nav > a[href="#menu"] {
+#header > div > a[href="#menu"] {
   text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-#header > nav > a[href="#menu"]:before {
+#header > div > a[href="#menu"]:before {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: FontAwesome;
@@ -3223,27 +3222,27 @@ body:before {
   font-weight: normal;
   text-transform: none !important;
 }
-#header > nav > a[href="#menu"]:before {
+#header > div > a[href="#menu"]:before {
   content: "";
   margin: 0 0.5rem 0 0;
 }
-#header > nav > a + a[href="#menu"]:last-child {
+#header > div > a + a[href="#menu"]:last-child {
   border-left: solid 1px rgba(255, 255, 255, 0.25);
   margin-left: 0.5rem;
   padding-left: 1.25rem;
 }
-#header > nav > a:last-child {
+#header > div > a:last-child {
   padding-right: 1.25rem;
 }
 @media screen and (max-width: 736px) {
-  #header > nav > a {
+  #header > div > a {
     padding: 0 0.5rem;
   }
-  #header > nav > a + a[href="#menu"]:last-child {
+  #header > div > a + a[href="#menu"]:last-child {
     margin-left: 0.25rem;
     padding-left: 1rem;
   }
-  #header > nav > a:last-child {
+  #header > div > a:last-child {
     padding-right: 1rem;
   }
 }

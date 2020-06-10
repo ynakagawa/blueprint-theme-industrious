@@ -10,7 +10,7 @@ This is the code for the DF Blueprint Reference skin:
 5. Container Component
 6. Embed Component
 
-Lesson 2
+###Lesson 2
 1. Download HTML template-industrious & unpack
 
 2. Re-Arrange folder structure:
@@ -64,7 +64,29 @@ Lesson 2
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
  
-        
+###Lesson 3
+
+1. Update Template thumbnail
+   * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
+2. Edit Page Template > Page Policy: Add clientlib theme.templated-industrious
+3. Edit Text Component config:  Enable show HTML Source
+4. Edit Container COmponent config: 
+    * Enable background image
+    * Add Style Group:  Render
+    * Save as policy: theme-industrious
+5. Edit Header XF
+    * Edit Template & allow for bp.structure components
+    * Remove existing component:  Navigation, Language Navigation, Search
+    * Add Container Component wtih ID: Header-top
+    * Add embed component inside Container Component
+       * ID:  header
+       * HTML should be taken from HTML sample, code within <header> tags
+       * make sure to change link to /content/bp/us/en/home.html
+5. Update Nav (account for AEM changing DIV to NAV)
+    * modify demo HTML files replacing NAV with DIV within Head
+    * make coresponding update to resources/sass/layout_header.scss (line 51) 
+    * compile sass by running 
+
  
       
 
