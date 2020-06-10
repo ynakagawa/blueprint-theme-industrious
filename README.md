@@ -10,6 +10,42 @@ This is the code for the DF Blueprint Reference skin:
 5. Container Component
 6. Embed Component
 
+Lesson 2
+1. Download HTML template-industrious & unpack
+
+2. Re-Arrange folder structure:
+   * assets/css  --> resources/css
+   * assets/fonts   --> resources/fonts
+   * assets/js  --> resources/js
+   * assets/sass  --> resources/sass
+   * images  --> resources/images
+   * html files --> resources/index|generic|elements.html
+
+3. De-compile & modify font-awesome.min.css (I used https://unminify.com)
+   * create file font-awesome.css & paste unminified css & place in resources/css
+   * create file font-awesome.scss & place in resourcessass/
+   * change resources/sass/font-awesome.scss line #7 - #9
+        * ../fonts --> ../../resources/fonts
+   * change reference in resources/sass/main.scss to the correct scss file (line 8)
+        *  @import 'font-awesome.scss';
+       
+4. Modify index html files references
+   * remove all instances of assets/ 
+   * fix bad references to .png files by changing to .jpg
+   
+5. Modify all sass files references
+   * replace all instances of ../../images/ to ../images
+   * run sass --no-source-map sass:css to update main.css
+
+6. Modify html & sass for certain AEM HTML
+
+   * resources/sass/layout/_menu.scss
+        * line 30 .links to .cmp-navigation__group
+        * all referenced html files line 28:  class="links" to class="cmp-navigation__group"
+        
+ 
+      
+
 
 
 
