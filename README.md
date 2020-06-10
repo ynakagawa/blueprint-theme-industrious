@@ -37,15 +37,19 @@ This is the code for the DF Blueprint Reference skin:
    * replace all instances of ../../images/ to ../images
    * run sass --no-source-map sass:css to update man.css
 
-6. Modify html & sass for certain AEM HTML
+6. Update Nav (account for AEM changing DIV to NAV)
+    * modify demo HTML files replacing NAV with DIV within Head
+    * make coresponding update to resources/sass/layout_header.scss (line 51) 
+ 
+7. Modify html & sass for certain AEM HTML
 
    * resources/sass/layout/_menu.scss
         * line 30 .links to .cmp-navigation__group
         * all referenced html files line 28:  class="links" to class="cmp-navigation__group"
         
-7. Compile with sass to update main.css by running sass --no-source-map sass:css        
+8. Compile with sass to update main.css by running sass --no-source-map sass:css        
 
-8. Create AEM Clientlib structure & import theme
+9. Create AEM Clientlib structure & import theme
  
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/ , create folder clientlib-themes
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes , create folder templated-industrious
@@ -58,10 +62,10 @@ This is the code for the DF Blueprint Reference skin:
          * add property allowProxy="{Boolean}true"
          * add property categories="[theme.templated-industrious]"
      
-     
- 9. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
+ 
+10. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
     
- 10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
+11. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
  
 ###Lesson 3
@@ -70,23 +74,35 @@ This is the code for the DF Blueprint Reference skin:
    * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
 2. Edit Page Template > Page Policy: Add clientlib theme.templated-industrious
 3. Edit Text Component config:  Enable show HTML Source
-4. Edit Container COmponent config: 
+4. Edit Container Component config: 
     * Enable background image
     * Add Style Group:  Render
     * Save as policy: theme-industrious
 5. Edit Header XF
     * Edit Template & allow for bp.structure components
-    * Remove existing component:  Navigation, Language Navigation, Search
-    * Add Container Component wtih ID: Header-top
+    * Remove existing component:  Language Navigation, Search
     * Add embed component inside Container Component
        * ID:  header
        * HTML should be taken from HTML sample, code within <header> tags
        * make sure to change link to /content/bp/us/en/home.html
-5. Update Nav (account for AEM changing DIV to NAV)
-    * modify demo HTML files replacing NAV with DIV within Head
-    * make coresponding update to resources/sass/layout_header.scss (line 51) 
-    * compile sass by running 
-
+    * Update Navigation component & add menu to ID field
+6. Create HomePage to validate clientLib through top Menu Nav
+    * Location: /content/sites/bp/us/en
+    * Page properties: Title= Home, name= home
+    * You can use AEM Preview to view this or you can remove "editor.html" --> http://localhost:4502/content/bp/us/en/home.html
+       * Make sure the Top Nav appears & the menu scrolls out when clicking Menu
+7. Edit Footer XF
+    * Remove the text component containing copyright dummy data
+    * Add Container Component with footer as the ID value
+    * Add 3 text components (We will use CSS to convert into columns)
+    * *If you wish to use AEM's layout feature to resize so they appear as columns, then do not use a Container component
+    * Edit Page Template & Configure XF text components to allow for HTML source
+    * Add html content for all three text components (using the HTML Source option)
+    * Footer will appear vertical, fix this by updating CSS to map to AEM
+        1. Change .content to .cmp-container (line 16,46,63)
+        2. Change section to .text (line 19,49)
+        3. Change section to .div (line 64)
+   
  
       
 
