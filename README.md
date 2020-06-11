@@ -171,6 +171,7 @@ This is the code for the DF Blueprint Reference skin:
       * Change .highlights to .cmp-controller-highlights .cmp-controller
       * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
       * copy/paste & adjuste from class .content
+         
 
 ## Modules
 

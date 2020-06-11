@@ -21,7 +21,7 @@
     <groupId>com.adobe.aem.blueprint</groupId>
     <artifactId>aem-guides-bp</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3-SNAPSHOT</version>
+    <version>0.0.4-SNAPSHOT</version>
     <description>bp</description>
 
     <modules>
