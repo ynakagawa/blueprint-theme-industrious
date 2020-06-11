@@ -172,6 +172,19 @@ This is the code for the DF Blueprint Reference skin:
       * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
       * copy/paste & adjuste from class .content
 
+##Lesson 5 - Embed Component
+
+1. Create an embeddable stub
+   * Open CRX DE Lite, copy /apps/core/wcm/components/embed/v1/embed/embeddable to /apps/bp/components/embed
+   * copy /apps/core/wcm/components/embed/v1/embed/cq:dialog to /apps/bp/components/embed/cq:dialog
+   * change the node /apps/bp/components/embed/embeddable/youtube to video
+   * change the underlying file from youtube.html to video.html
+   * change the jcr:title property on the video node from Youtube to Video
+   * place the entire html fragment into the video.html file
+2. Validate the experience, then make the video path authorable by creating a dialog entry
+3. Configure the Template policy to only allow my video embed
+   
+ 
 ## Modules
 
 The main parts of the project are:
