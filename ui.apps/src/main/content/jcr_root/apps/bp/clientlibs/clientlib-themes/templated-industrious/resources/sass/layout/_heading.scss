@@ -1,6 +1,6 @@
 /* Heading */
 
-	#heading {
+	.cmp-container-heading .cmp-container {
 		-ms-flex-align: center;
 		-ms-flex-pack: center;
 		@include color(accent2);
@@ -31,6 +31,18 @@
 			top: 0;
 			width: 100%;
 			z-index: 1;
+		}
+
+		> .text {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
+		}
+
+		h2 {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
 		}
 
 		h1 {

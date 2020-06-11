@@ -105,9 +105,72 @@ This is the code for the DF Blueprint Reference skin:
    
  
       
+##Lesson 4 - Container Components
+
+1. CTA Style for Container Component
+
+    * Make sure Text has HTML Source enabled (use Template Policy Editor)
+    * Open Home page & Add Container Component.  Within the Container, add a Text & Teaser (add dummy content)
+    * View Source to see how the page rendered, notice the CTA ID & the class=cmp-container (we will replace CTA wil style system)
+    * Open template editor & click on Container to configure:
+    * Add a style "CTA" under group "Render".  Value should be cmp-container-cta.  (Publish template when done)
+    * In the Home page, edit mode, use the Style System selector & choose CTA as the render option
+    * In Preview, inspect the page:  You will notice that cmp-container-cta DIV was added on top of the cta div.
+    * Open file resources/sass/layout/_cta.scss, change #cta to .cmp-container-cta .cmp-container
+    * recompile sass with:  sass --no-source-map sass:css & push into AEM
+    * Make corresponding updates to resources/index.html
+       * add DIV with class=cmp-container-cta above DIV with ID=cta
+       * remove ID=CTA & replace with class=cmp-container
+    * In the Edit Mode of Home page, toggle CTA on/off to view experience
 
 
+2. Heading Style for Container Component
 
+   * Add style sytem option for Heading wtih value .cmp-container-heading (in Template Policy Editor)
+   * In the Elements page, add a container component with ID header
+   * Inside the Container Component, add a text and|or title component
+   * (if the CSS causes the AEM component bars to get misplaced, remove the ID heading & add it back in after the nested component placements) 
+   * Inspect the Elements page & notice the DIV with the ID heading
+   * Use the Style System to select Heading & inspect again:  Notice again the addition of the DIV with class cmp-container-heading
+   * Modify file resources/sass/layout/_heading.scss, change #heading to .cmp-container-heading .cmp-container
+   * Also copy h1 CSS to h2 to allow for component flexibility (Title uses H2)
+   * To add support for Text Components, add > .text
+   * recompile sass with:  sass --no-source-map sass:css & push into AEM
+   * Make corresponding updates to resources/generic.html & elements.html
+      * add DIV with class=cmp-container-cta above DIV with ID=cta
+      * remove ID=CTA & replace with class=cmp-container
+    * In Edit Mode of Elements or Generic page, toggle Heading on/off to view experience
+
+3. Main Style for Container Component
+
+   * Open Generic Page, add Separator component, then a Container component with a nested Text Component with dummy data
+   * Open template policy editor & make the following updates:
+      * Change "Reader" header to "background layouts"
+      * Create a new heading caled "Content Layouts"
+      * Change "CTA" to "Scrolling" & Heading to "Fixed"
+      * Add a new entry under "Content Layouts" called "main" with value "cmp-container-main"
+  * Open the sass file resources/sass/layout/_main.scss and modify:
+      * change #main to .cmp-container-main .cmp-container
+      * comment out the nested .content class to allow for any component within this main Container component
+  * In Edit Mode of Generic, toggle on main to view experience
+  * The title appear's smaller then the HTM version in all instances.  HTML is using H1 where AEM components start at H2
+      * edit resources/sass/base/_typography.scss & make H2 match H1
+      
+      
+4. Highlights Style for Container Component
+
+   * Open template policy editor & make the following updates:
+      * Add a new entry under "Content Layouts" called "Highlights" with value "cmp-container-highlights"
+   * Open Edit Page, add Separator component
+   * Within the Container components that should be supported in this experience:
+      * Add Title Component with dummy data
+      * Add Text Component with dummy data
+      * Add List Component with dummy data
+   * Use the Style System to select "Highights"
+   * Open sass file resources/sass/components/_highights.scss & modify:
+      * Change .highlights to .cmp-controller-highlights .cmp-controller
+      * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
+      * copy/paste & adjuste from class .content
 
 ## Modules
 
