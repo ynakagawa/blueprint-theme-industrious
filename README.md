@@ -3,14 +3,13 @@
 This is the code for the DF Blueprint Reference skin: 
 
 ## Lessons
-1. Creating an AEM Project
-2. Arranging the HTML for easier AEM Import
-3. Converting HTML libraries to AEM Clientlibs
-4. Configuring your AEM Page template
-5. Container Component
-6. Embed Component
+1. Creating an AEM Project using the DF Blueprint Archetype
+2. Arranging the HTML for easier AEM Import & creating the AEM Clientlibs
+3. Configuring your AEM Page template
+4. Container Component
+5. Embed Component
 
-## LESSON 1 - Setup AEM using DF Blueprint Archetype
+## Lesson 1 - Setup AEM using DF Blueprint Archetype
 
 ```
 mvn archetype:generate \
@@ -40,14 +39,19 @@ mvn archetype:generate \
   -DappTitle=bp
 ```
 
-## Lesson 2
+## Lesson 2 - Arranging HTML for easier AEM Import
+
 1. Download HTML template-industrious & unpack
 
-2. rename assets folder to resources
+2. Rename assets folder to resources
 
 3. move html files & images into resources folder
 
-4. De-compile & modify font-awesome.min.css (I used https://unminify.com, sample provided)
+   _AEM Clientlib feature AllowProxy property will expose the folder "resource"_ 
+   https://docs.adobe.com/content/help/en/experience-manager-65/developing/introduction/clientlibs.html#locating-a-client-library-folder-and-using-the-proxy-client-libraries-servlet
+
+4. De-compile & modify font-awesome.min.css _I used https://unminify.com_ [Sample provided](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:23f389e8-10e9-4556-9b66-e77f06df4ae5)
+
    * create file font-awesome.css & paste unminified css & place in resources/css
    * delete file font-awesome.min.css
    * create file font-awesome.scss & place in resources/sass/
@@ -131,9 +135,12 @@ s
     
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
+_**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:23f389e8-10e9-4556-9b66-e77f06df4ae5)**_
 
-## Lesson 3
 
+## Lesson 3 - Configuring your AEM Page template
+[Lesson 3 AEM CRX Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
+  
 1. Update Template thumbnail
    * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
 2. Edit Page Template > Page Policy: Add clientlib theme.templated-industrious
@@ -166,10 +173,14 @@ s
         1. Change .content to .cmp-container (line 16,46,63)
         2. Change section to .text (line 19,49)
         3. Change section to .div (line 64)
-   
- 
+  
+  [Lesson 3 AEM Content Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
+  
      
 ## Lesson 4 - Container Components
+
+[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
+
 
 1. CTA Style for Container Component
 
@@ -236,7 +247,11 @@ s
       * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
       * copy/paste & adjuste from class .content
 
+[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
+
 ##Lesson 5 - Embed Component
+
+[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
 
 1. Create an embeddable stub
    * Open CRX DE Lite, copy /apps/core/wcm/components/embed/v1/embed/embeddable to /apps/bp/components/embed
@@ -248,6 +263,7 @@ s
 2. Validate the experience, then make the video path authorable by creating a dialog entry
 3. Configure the Template policy to only allow my video embed
    
+[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
  
 ## Modules
 
