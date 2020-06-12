@@ -94,28 +94,38 @@ mvn archetype:generate \
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious , create folder resources
     * create file css.txt & js.txt under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
          * css.txt add references to css files
-````
+```
 #base=resources/css
 main.css
-font-awesome.css
-``` 
- 
-      
-         * jx.txt add references to js files
-``
+font-awesome.css 
+```
+
+   * jx.txt add references to js files
+
+```
 #base=resources/js
 jquery.min.js
 browser.min.js
 breakpoints.min.js
 util.js
 main.js
-``
-  
-    * create a file .content.xml to define AEM node structure under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
+```
+ 
+   * create a file .content.xml to define AEM node structure under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
          * add property jcr:primaryType="cq:ClientLibraryFolder"
          * add property allowProxy="{Boolean}true"
          * add property categories="[theme.templated-industrious]"
-     
+
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          jcr:primaryType="cq:ClientLibraryFolder"
+          allowProxy="{Boolean}true"
+          categories="[theme.templated-industrious]" />
+s
+```
+ 
      
  9. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
     
