@@ -10,7 +10,7 @@ This is the code for the DF Blueprint Reference skin:
 5. Container Component
 6. Embed Component
 
-##LESSON 1 - Setup AEM using DF Blueprint Archetype
+## LESSON 1 - Setup AEM using DF Blueprint Archetype
 
 ```
 mvn archetype:generate \
@@ -40,7 +40,7 @@ mvn archetype:generate \
   -DappTitle=bp
 ```
 
-##Lesson 2
+## Lesson 2
 1. Download HTML template-industrious & unpack
 
 2. rename assets folder to resources
@@ -132,7 +132,7 @@ s
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
 
-##Lesson 3
+## Lesson 3
 
 1. Update Template thumbnail
    * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
@@ -169,7 +169,7 @@ s
    
  
      
-##Lesson 4 - Container Components
+## Lesson 4 - Container Components
 
 1. CTA Style for Container Component
 
