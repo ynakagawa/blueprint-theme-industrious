@@ -2,7 +2,7 @@
 
 This is the code for the DF Blueprint Reference skin: 
 
-## Lessons
+# Lessons
 1. Creating an AEM Project
 2. Arranging the HTML for easier AEM Import
 3. Converting HTML libraries to AEM Clientlibs
@@ -10,49 +10,107 @@ This is the code for the DF Blueprint Reference skin:
 5. Container Component
 6. Embed Component
 
-###Lesson 2
+##LESSON 1 - Setup AEM using DF Blueprint Archetype
+
+```
+mvn archetype:generate \
+  -DarchetypeGroupId=com.adobe.granite.archetypes \
+  -DarchetypeArtifactId=aem-project-archetype \
+  -DarchetypeVersion=23 \
+  -DgroupId=com.adobe.aem.blueprint \
+  -Dversion=0.0.1-SNAPSHOT \
+  -DappsFolderName=bp \
+  -DartifactId=aem-guides-bp \
+  -Dpackage=com.adobe.aem.guides.bp \
+  -DartifactName=Digital\ Foundation\ Blueprint \
+  -DcomponentGroupName=BP \
+  -DconfFolderName=bp \
+  -DcontentFolderName=bp \
+  -DcssId=bp \
+  -DisSingleCountryWebsite=y \
+  -Dlanguage_country=en_us \
+  -DaemVersion=cloud \
+  -DoptionDispatcherConfig=cloud \
+  -DoptionIncludeErrorHandler=y \
+  -DoptionIncludeExamples=y \
+  -DoptionIncludeFrontendModule=y \
+  -DpackageGroup=bp \
+  -DsiteName=DF\ Blueprint\ Site \
+  -DappId=bp \
+  -DappTitle=bp
+```
+
+##Lesson 2
 1. Download HTML template-industrious & unpack
 
-2. Re-Arrange folder structure:
-   * assets/css  --> resources/css
-   * assets/fonts   --> resources/fonts
-   * assets/js  --> resources/js
-   * assets/sass  --> resources/sass
-   * images  --> resources/images
-   * html files --> resources/index|generic|elements.html
+2. rename assets folder to resources
 
-3. De-compile & modify font-awesome.min.css (I used https://unminify.com)
+3. move html files & images into resources folder
+
+4. De-compile & modify font-awesome.min.css (I used https://unminify.com, sample provided)
    * create file font-awesome.css & paste unminified css & place in resources/css
-   * create file font-awesome.scss & place in resourcessass/
+   * delete file font-awesome.min.css
+   * create file font-awesome.scss & place in resources/sass/
    * change resources/sass/font-awesome.scss line #7 - #9
         * ../fonts --> ../../resources/fonts
-   * change reference in resources/sass/main.scss to the correct scss file (line 8)
-        *  @import 'font-awesome.scss';
+   * comment out reference in resources/sass/main.scss to the correct scss file (line 8)
+        *//  @import 'font-awesome.scss';
        
-4. Modify index html files references
+4. Modify index.html file references
    * remove all instances of assets/ 
+   * change header element from nav to div
+   * change NAV ID menu's child div class from links to cmp-navigation__group
+   * change image path to images/
    * fix bad references to .png files by changing to .jpg
    
-5. Modify all sass files references
-   * replace all instances of ../../images/ to ../images
-   * run sass --no-source-map sass:css to update man.css
+5. Modify generic.html files
+   * remove all instances of assets/ 
+   * change header element from nav to div
+   * change NAV ID menu's child div class from links to cmp-navigation__group
+   * change image path to images/
 
-6. Modify html & sass for certain AEM HTML
+6. Modify elements.html files
+   * remove all instances of assets/ 
+   * change header element from nav to div
+   * change NAV ID menu's child div class from links to cmp-navigation__group
+   * change image path to images/
+   * fix bad references to .png files by changing to .jpg
 
-   * resources/sass/layout/_menu.scss
-        * line 30 .links to .cmp-navigation__group
-        * all referenced html files line 28:  class="links" to class="cmp-navigation__group"
-        
-7. Compile with sass to update main.css by running sass --no-source-map sass:css        
+7. Modify resources/sass/layout_menu.scss
+   * line 30 .links to .cmp-navigation__group
+ 
+8. Modify resources/sass/layout/_banner.scss
+   * background-image: url('../images/banner.jpg');
 
-8. Create AEM Clientlib structure & import theme
+9. Modify resources/sass/layout/_cta.scss
+   * modify image reference to ../images/cta01.jpg
+      
+10. Compile with sass running sass --no-source-map sass:css        
+
+11. Create AEM Clientlib structure & import theme
  
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/ , create folder clientlib-themes
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes , create folder templated-industrious
     * under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious , create folder resources
     * create file css.txt & js.txt under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
          * css.txt add references to css files
+````
+#base=resources/css
+main.css
+font-awesome.css
+``` 
+ 
+      
          * jx.txt add references to js files
+``
+#base=resources/js
+jquery.min.js
+browser.min.js
+breakpoints.min.js
+util.js
+main.js
+``
+  
     * create a file .content.xml to define AEM node structure under ui.apps/src/main/content/jcr_root/apps/bp/clientlibs/clientlib-themes/templated-industrious
          * add property jcr:primaryType="cq:ClientLibraryFolder"
          * add property allowProxy="{Boolean}true"
