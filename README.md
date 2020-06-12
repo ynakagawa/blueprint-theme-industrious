@@ -39,6 +39,10 @@ mvn archetype:generate \
   -DappTitle=bp
 ```
 
+```
+mvn -PautoInstallSinglePackage clean install
+```
+
 ## Lesson 2 - Arranging HTML for easier AEM Import
 
 1. Download HTML template-industrious & unpack [html zip](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:c2227230-ccda-47b5-82f2-9192b55e1286)
@@ -140,6 +144,8 @@ s
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
 _**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)**_
+
+todo: Menu font icon is missing
 
 
 ## Lesson 3 - Configuring your AEM Page template
