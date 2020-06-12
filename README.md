@@ -41,7 +41,11 @@ mvn archetype:generate \
 
 ## Lesson 2 - Arranging HTML for easier AEM Import
 
-1. Download HTML template-industrious & unpack
+1. Download HTML template-industrious & unpack [html zip](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:c2227230-ccda-47b5-82f2-9192b55e1286)
+
+
+  _For this tutorial, i went to [Templated.io](https://templated.co/) & downloaded a free HTML template.  Templated provides a collection of simple HTML5 & Responsive site templates, released for free under the Creative Commons._
+  _The template i chose was called [Industrous](https://templated.co/industrious)_
 
 2. Rename assets folder to resources
 
@@ -50,7 +54,7 @@ mvn archetype:generate \
    _AEM Clientlib feature AllowProxy property will expose the folder "resource"_ 
    https://docs.adobe.com/content/help/en/experience-manager-65/developing/introduction/clientlibs.html#locating-a-client-library-folder-and-using-the-proxy-client-libraries-servlet
 
-4. De-compile & modify font-awesome.min.css _I used https://unminify.com_ [Sample provided](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:23f389e8-10e9-4556-9b66-e77f06df4ae5)
+4. De-compile & modify font-awesome.min.css _I used https://unminify.com_ [Sample provided](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)
 
    * create file font-awesome.css & paste unminified css & place in resources/css
    * delete file font-awesome.min.css
@@ -135,7 +139,7 @@ s
     
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
-_**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:23f389e8-10e9-4556-9b66-e77f06df4ae5)**_
+_**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)**_
 
 
 ## Lesson 3 - Configuring your AEM Page template
