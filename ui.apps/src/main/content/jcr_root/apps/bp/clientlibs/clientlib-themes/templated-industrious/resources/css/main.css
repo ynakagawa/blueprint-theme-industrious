@@ -5382,6 +5382,7 @@ ul.actions:not(.fixed) li .button.icon:before {
   text-decoration: none;
   border-bottom: none;
   position: relative;
+  font-size: 5rem;
 }
 .icon:before {
   -moz-osx-font-smoothing: grayscale;
