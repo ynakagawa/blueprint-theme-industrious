@@ -2,14 +2,12 @@
 
 This is the code for the DF Blueprint Reference skin: 
 
-## Lessons
+##Lesson 1 - Setup AEM using DF Blueprint Archetype
 1. Creating an AEM Project using the DF Blueprint Archetype
 2. Arranging the HTML for easier AEM Import & creating the AEM Clientlibs
 3. Configuring your AEM Page template
 4. Container Component
 5. Embed Component
-
-## Lesson 1 - Setup AEM using DF Blueprint Archetype
 
 ```
 mvn archetype:generate \
