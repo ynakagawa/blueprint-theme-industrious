@@ -3229,8 +3229,8 @@ h1 {
 }
 
 h2 {
-  font-size: 2.25rem;
-  line-height: 1.3;
+  font-size: 3rem;
+  line-height: 1.2;
 }
 
 h3 {
@@ -3844,7 +3844,7 @@ table.alt tbody tr td {
 }
 
 /* Highlights */
-.highlights {
+.cmp-container-highlights .cmp-container {
   width: 100%;
   margin: 2.5rem 0;
   display: -moz-flex;
@@ -3860,7 +3860,7 @@ table.alt tbody tr td {
   -ms-align-items: -ms-stretch;
   align-items: stretch;
 }
-.highlights > * {
+.cmp-container-highlights .cmp-container > * {
   -moz-flex-shrink: 1;
   -webkit-flex-shrink: 1;
   -ms-flex-shrink: 1;
@@ -3870,154 +3870,193 @@ table.alt tbody tr td {
   -ms-flex-grow: 0;
   flex-grow: 0;
 }
-.highlights > * {
+.cmp-container-highlights .cmp-container > * {
   width: 33.3333333333%;
 }
-.highlights > * {
+.cmp-container-highlights .cmp-container > * {
   padding: 1.5rem;
   width: calc(33.3333333333% + 1rem);
 }
-.highlights > :nth-child(-n+3) {
+.cmp-container-highlights .cmp-container > :nth-child(-n+3) {
   padding-top: 0;
 }
-.highlights > :nth-last-child(-n+3) {
+.cmp-container-highlights .cmp-container > :nth-last-child(-n+3) {
   padding-bottom: 0;
 }
-.highlights > :nth-child(3n+1) {
+.cmp-container-highlights .cmp-container > :nth-child(3n+1) {
   padding-left: 0;
 }
-.highlights > :nth-child(3n) {
+.cmp-container-highlights .cmp-container > :nth-child(3n) {
   padding-right: 0;
 }
-.highlights > :nth-child(3n+1),
-.highlights > :nth-child(3n) {
+.cmp-container-highlights .cmp-container > :nth-child(3n+1),
+.cmp-container-highlights .cmp-container > :nth-child(3n) {
   width: calc(33.3333333333% + -0.5rem);
 }
-.highlights .content {
+.cmp-container-highlights .cmp-container .title {
+  border-radius: 4px;
+  height: 100%;
+  padding: 3rem;
+  text-align: center;
+  background-color: #fff;
+  margin: 1px;
+  min-height: 250px;
+  width: 33%;
+}
+.cmp-container-highlights .cmp-container .title .icon {
+  font-size: 5rem;
+}
+.cmp-container-highlights .cmp-container .teaser {
+  border-radius: 4px;
+  height: 100%;
+  padding: 3rem;
+  text-align: center;
+  background-color: #fff;
+  margin: 1px;
+  min-height: 250px;
+  width: 33%;
+}
+.cmp-container-highlights .cmp-container .teaser .icon {
+  font-size: 5rem;
+}
+.cmp-container-highlights .cmp-container .list {
+  border-radius: 4px;
+  height: 100%;
+  padding: 3rem;
+  text-align: left;
+  background-color: #fff;
+  margin: 1px;
+  min-height: 250px;
+  width: 33%;
+}
+.cmp-container-highlights .cmp-container .list .icon {
+  font-size: 5rem;
+}
+.cmp-container-highlights .cmp-container .content {
   border-radius: 4px;
   height: 100%;
   padding: 3rem;
   text-align: center;
 }
-.highlights .content .icon {
+.cmp-container-highlights .cmp-container .content .icon {
   font-size: 5rem;
 }
-.highlights > div > :last-child {
+.cmp-container-highlights .cmp-container > div > :last-child {
   margin-bottom: 0;
 }
 @media screen and (max-width: 980px) {
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     width: 50%;
   }
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     padding: 1rem;
     width: calc(33.3333333333% + 0.6666666667rem);
   }
-  .highlights > :nth-child(-n+3) {
+  .cmp-container-highlights .cmp-container > :nth-child(-n+3) {
     padding-top: 1rem;
   }
-  .highlights > :nth-last-child(-n+3) {
+  .cmp-container-highlights .cmp-container > :nth-last-child(-n+3) {
     padding-bottom: 1rem;
   }
-  .highlights > :nth-child(3n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n+1) {
     padding-left: 1rem;
   }
-  .highlights > :nth-child(3n) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n) {
     padding-right: 1rem;
   }
-  .highlights > :nth-child(3n+1),
-.highlights > :nth-child(3n) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n+1),
+.cmp-container-highlights .cmp-container > :nth-child(3n) {
     padding: 1rem;
     width: calc(50% + 1rem);
   }
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     padding: 1rem;
     width: calc(50% + 1rem);
   }
-  .highlights > :nth-child(-n+2) {
+  .cmp-container-highlights .cmp-container > :nth-child(-n+2) {
     padding-top: 0;
   }
-  .highlights > :nth-last-child(-n+2) {
+  .cmp-container-highlights .cmp-container > :nth-last-child(-n+2) {
     padding-bottom: 0;
   }
-  .highlights > :nth-child(2n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n+1) {
     padding-left: 0;
   }
-  .highlights > :nth-child(2n) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n) {
     padding-right: 0;
   }
-  .highlights > :nth-child(2n+1),
-.highlights > :nth-child(2n) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n+1),
+.cmp-container-highlights .cmp-container > :nth-child(2n) {
     width: calc(50% + 0rem);
   }
-  .highlights .content {
+  .cmp-container-highlights .cmp-container .content {
     padding: 2rem;
   }
 }
 @media screen and (max-width: 736px) {
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     width: 100%;
   }
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     padding: 1rem;
     width: calc(33.3333333333% + 0.6666666667rem);
   }
-  .highlights > :nth-child(-n+3) {
+  .cmp-container-highlights .cmp-container > :nth-child(-n+3) {
     padding-top: 1rem;
   }
-  .highlights > :nth-last-child(-n+3) {
+  .cmp-container-highlights .cmp-container > :nth-last-child(-n+3) {
     padding-bottom: 1rem;
   }
-  .highlights > :nth-child(3n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n+1) {
     padding-left: 1rem;
   }
-  .highlights > :nth-child(3n) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n) {
     padding-right: 1rem;
   }
-  .highlights > :nth-child(3n+1),
-.highlights > :nth-child(3n) {
+  .cmp-container-highlights .cmp-container > :nth-child(3n+1),
+.cmp-container-highlights .cmp-container > :nth-child(3n) {
     padding: 1rem;
     width: calc(100% + 2rem);
   }
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     padding: 1rem;
     width: calc(50% + 1rem);
   }
-  .highlights > :nth-child(-n+2) {
+  .cmp-container-highlights .cmp-container > :nth-child(-n+2) {
     padding-top: 1rem;
   }
-  .highlights > :nth-last-child(-n+2) {
+  .cmp-container-highlights .cmp-container > :nth-last-child(-n+2) {
     padding-bottom: 1rem;
   }
-  .highlights > :nth-child(2n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n+1) {
     padding-left: 1rem;
   }
-  .highlights > :nth-child(2n) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n) {
     padding-right: 1rem;
   }
-  .highlights > :nth-child(2n+1),
-.highlights > :nth-child(2n) {
+  .cmp-container-highlights .cmp-container > :nth-child(2n+1),
+.cmp-container-highlights .cmp-container > :nth-child(2n) {
     padding: 1rem;
     width: calc(100% + 2rem);
   }
-  .highlights > * {
+  .cmp-container-highlights .cmp-container > * {
     padding: 1rem;
     width: calc(100% + 2rem);
   }
-  .highlights > :nth-child(-n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(-n+1) {
     padding-top: 0;
   }
-  .highlights > :nth-last-child(-n+1) {
+  .cmp-container-highlights .cmp-container > :nth-last-child(-n+1) {
     padding-bottom: 0;
   }
-  .highlights > :nth-child(1n+1) {
+  .cmp-container-highlights .cmp-container > :nth-child(1n+1) {
     padding-left: 0;
   }
-  .highlights > :nth-child(1n) {
+  .cmp-container-highlights .cmp-container > :nth-child(1n) {
     padding-right: 0;
   }
-  .highlights > :nth-child(1n+1),
-.highlights > :nth-child(1n) {
+  .cmp-container-highlights .cmp-container > :nth-child(1n+1),
+.cmp-container-highlights .cmp-container > :nth-child(1n) {
     width: calc(100% + 1rem);
   }
 }
@@ -5763,7 +5802,7 @@ body.is-preload #banner:before {
 }
 
 /* CTA */
-#cta {
+.cmp-container-cta .cmp-container {
   background-color: #ce1b28;
   color: rgba(255, 255, 255, 0.75);
   background-attachment: fixed;
@@ -5775,177 +5814,177 @@ body.is-preload #banner:before {
   text-align: center;
   z-index: 1;
 }
-#cta input, #cta select, #cta textarea {
+.cmp-container-cta .cmp-container input, .cmp-container-cta .cmp-container select, .cmp-container-cta .cmp-container textarea {
   color: #ffffff;
 }
-#cta a {
+.cmp-container-cta .cmp-container a {
   color: #ffffff;
 }
-#cta strong, #cta b {
+.cmp-container-cta .cmp-container strong, .cmp-container-cta .cmp-container b {
   color: #ffffff;
 }
-#cta h1, #cta h2, #cta h3, #cta h4, #cta h5, #cta h6 {
+.cmp-container-cta .cmp-container h1, .cmp-container-cta .cmp-container h2, .cmp-container-cta .cmp-container h3, .cmp-container-cta .cmp-container h4, .cmp-container-cta .cmp-container h5, .cmp-container-cta .cmp-container h6 {
   color: #ffffff;
 }
-#cta blockquote {
+.cmp-container-cta .cmp-container blockquote {
   border-left-color: rgba(255, 255, 255, 0.25);
 }
-#cta code {
+.cmp-container-cta .cmp-container code {
   background: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#cta hr {
+.cmp-container-cta .cmp-container hr {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
-#cta input[type=submit],
-#cta input[type=reset],
-#cta input[type=button],
-#cta button,
-#cta .button {
+.cmp-container-cta .cmp-container input[type=submit],
+.cmp-container-cta .cmp-container input[type=reset],
+.cmp-container-cta .cmp-container input[type=button],
+.cmp-container-cta .cmp-container button,
+.cmp-container-cta .cmp-container .button {
   background-color: transparent;
   box-shadow: inset 0 0 0 1px #ffffff;
   color: #ffffff !important;
 }
-#cta input[type=submit]:hover,
-#cta input[type=reset]:hover,
-#cta input[type=button]:hover,
-#cta button:hover,
-#cta .button:hover {
+.cmp-container-cta .cmp-container input[type=submit]:hover,
+.cmp-container-cta .cmp-container input[type=reset]:hover,
+.cmp-container-cta .cmp-container input[type=button]:hover,
+.cmp-container-cta .cmp-container button:hover,
+.cmp-container-cta .cmp-container .button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-#cta input[type=submit]:hover:active,
-#cta input[type=reset]:hover:active,
-#cta input[type=button]:hover:active,
-#cta button:hover:active,
-#cta .button:hover:active {
+.cmp-container-cta .cmp-container input[type=submit]:hover:active,
+.cmp-container-cta .cmp-container input[type=reset]:hover:active,
+.cmp-container-cta .cmp-container input[type=button]:hover:active,
+.cmp-container-cta .cmp-container button:hover:active,
+.cmp-container-cta .cmp-container .button:hover:active {
   background-color: rgba(255, 255, 255, 0.25);
 }
-#cta input[type=submit].primary,
-#cta input[type=reset].primary,
-#cta input[type=button].primary,
-#cta button.primary,
-#cta .button.primary {
+.cmp-container-cta .cmp-container input[type=submit].primary,
+.cmp-container-cta .cmp-container input[type=reset].primary,
+.cmp-container-cta .cmp-container input[type=button].primary,
+.cmp-container-cta .cmp-container button.primary,
+.cmp-container-cta .cmp-container .button.primary {
   box-shadow: none;
   background-color: #ffffff;
   color: #ce1b28 !important;
 }
-#cta input[type=submit].primary:hover,
-#cta input[type=reset].primary:hover,
-#cta input[type=button].primary:hover,
-#cta button.primary:hover,
-#cta .button.primary:hover {
+.cmp-container-cta .cmp-container input[type=submit].primary:hover,
+.cmp-container-cta .cmp-container input[type=reset].primary:hover,
+.cmp-container-cta .cmp-container input[type=button].primary:hover,
+.cmp-container-cta .cmp-container button.primary:hover,
+.cmp-container-cta .cmp-container .button.primary:hover {
   background-color: rgba(255, 255, 255, 0.875);
   box-shadow: none;
 }
-#cta input[type=submit].primary:hover:active,
-#cta input[type=reset].primary:hover:active,
-#cta input[type=button].primary:hover:active,
-#cta button.primary:hover:active,
-#cta .button.primary:hover:active {
+.cmp-container-cta .cmp-container input[type=submit].primary:hover:active,
+.cmp-container-cta .cmp-container input[type=reset].primary:hover:active,
+.cmp-container-cta .cmp-container input[type=button].primary:hover:active,
+.cmp-container-cta .cmp-container button.primary:hover:active,
+.cmp-container-cta .cmp-container .button.primary:hover:active {
   background-color: rgba(255, 255, 255, 0.5);
 }
-#cta label {
+.cmp-container-cta .cmp-container label {
   color: #ffffff;
 }
-#cta input[type=text],
-#cta input[type=password],
-#cta input[type=email],
-#cta input[type=tel],
-#cta input[type=search],
-#cta input[type=url],
-#cta select,
-#cta textarea {
+.cmp-container-cta .cmp-container input[type=text],
+.cmp-container-cta .cmp-container input[type=password],
+.cmp-container-cta .cmp-container input[type=email],
+.cmp-container-cta .cmp-container input[type=tel],
+.cmp-container-cta .cmp-container input[type=search],
+.cmp-container-cta .cmp-container input[type=url],
+.cmp-container-cta .cmp-container select,
+.cmp-container-cta .cmp-container textarea {
   background-color: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#cta input[type=text]:focus,
-#cta input[type=password]:focus,
-#cta input[type=email]:focus,
-#cta input[type=tel]:focus,
-#cta input[type=search]:focus,
-#cta input[type=url]:focus,
-#cta select:focus,
-#cta textarea:focus {
+.cmp-container-cta .cmp-container input[type=text]:focus,
+.cmp-container-cta .cmp-container input[type=password]:focus,
+.cmp-container-cta .cmp-container input[type=email]:focus,
+.cmp-container-cta .cmp-container input[type=tel]:focus,
+.cmp-container-cta .cmp-container input[type=search]:focus,
+.cmp-container-cta .cmp-container input[type=url]:focus,
+.cmp-container-cta .cmp-container select:focus,
+.cmp-container-cta .cmp-container textarea:focus {
   border-color: #ffffff;
   box-shadow: 0 0 0 1px #ffffff;
 }
-#cta select {
+.cmp-container-cta .cmp-container select {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.25)' /%3E%3C/svg%3E");
 }
-#cta select option {
+.cmp-container-cta .cmp-container select option {
   color: rgba(255, 255, 255, 0.75);
   background-color: #ce1b28;
 }
-#cta input[type=checkbox] + label,
-#cta input[type=radio] + label {
+.cmp-container-cta .cmp-container input[type=checkbox] + label,
+.cmp-container-cta .cmp-container input[type=radio] + label {
   color: rgba(255, 255, 255, 0.75);
 }
-#cta input[type=checkbox] + label:before,
-#cta input[type=radio] + label:before {
+.cmp-container-cta .cmp-container input[type=checkbox] + label:before,
+.cmp-container-cta .cmp-container input[type=radio] + label:before {
   background: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#cta input[type=checkbox]:checked + label:before,
-#cta input[type=radio]:checked + label:before {
+.cmp-container-cta .cmp-container input[type=checkbox]:checked + label:before,
+.cmp-container-cta .cmp-container input[type=radio]:checked + label:before {
   background-color: #ffffff;
   border-color: #ffffff;
   color: #ce1b28;
 }
-#cta input[type=checkbox]:focus + label:before,
-#cta input[type=radio]:focus + label:before {
+.cmp-container-cta .cmp-container input[type=checkbox]:focus + label:before,
+.cmp-container-cta .cmp-container input[type=radio]:focus + label:before {
   border-color: #ffffff;
   box-shadow: 0 0 0 1px #ffffff;
 }
-#cta ::-webkit-input-placeholder {
+.cmp-container-cta .cmp-container ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#cta :-moz-placeholder {
+.cmp-container-cta .cmp-container :-moz-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#cta ::-moz-placeholder {
+.cmp-container-cta .cmp-container ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#cta :-ms-input-placeholder {
+.cmp-container-cta .cmp-container :-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#cta ul.alt li {
+.cmp-container-cta .cmp-container ul.alt li {
   border-top-color: rgba(255, 255, 255, 0.25);
 }
-#cta table tbody tr {
+.cmp-container-cta .cmp-container table tbody tr {
   border-color: rgba(255, 255, 255, 0.25);
 }
-#cta table tbody tr:nth-child(2n+1) {
+.cmp-container-cta .cmp-container table tbody tr:nth-child(2n+1) {
   background-color: rgba(255, 255, 255, 0.075);
 }
-#cta table th {
+.cmp-container-cta .cmp-container table th {
   color: #ffffff;
 }
-#cta table thead {
+.cmp-container-cta .cmp-container table thead {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
-#cta table tfoot {
+.cmp-container-cta .cmp-container table tfoot {
   border-top-color: rgba(255, 255, 255, 0.25);
 }
-#cta table.alt tbody tr td {
+.cmp-container-cta .cmp-container table.alt tbody tr td {
   border-color: rgba(255, 255, 255, 0.25);
 }
-#cta .highlights .content {
+.cmp-container-cta .cmp-container .highlights .content {
   background: #ce1b28;
   box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025);
 }
-#cta .testimonials .content {
+.cmp-container-cta .cmp-container .testimonials .content {
   background: #ce1b28;
   box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025);
 }
-#cta .testimonials .content .credit strong {
+.cmp-container-cta .cmp-container .testimonials .content .credit strong {
   color: #ce1b28;
 }
-#cta .inner {
+.cmp-container-cta .cmp-container .inner {
   position: relative;
   z-index: 3;
 }
 @media screen and (max-width: 980px) {
-  #cta {
+  .cmp-container-cta .cmp-container {
     background-attachment: scroll;
   }
 }
@@ -6129,20 +6168,20 @@ body.is-preload #banner:before {
 #footer a:hover {
   color: #ce1b28;
 }
-#footer .content {
+#footer .cmp-container {
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
 }
-#footer .content section {
+#footer .cmp-container .text {
   width: 25%;
 }
-#footer .content section:first-child {
+#footer .cmp-container .text:first-child {
   width: 50%;
   padding-right: 4rem;
 }
-#footer .content section:last-child {
+#footer .cmp-container .text:last-child {
   padding-left: 4rem;
 }
 #footer .copyright {
@@ -6158,16 +6197,16 @@ body.is-preload #banner:before {
   }
 }
 @media screen and (max-width: 980px) {
-  #footer .content {
+  #footer .cmp-container {
     -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
   }
-  #footer .content section {
+  #footer .cmp-container .text {
     width: 50%;
   }
-  #footer .content section:first-child {
+  #footer .cmp-container .text:first-child {
     width: 100%;
     padding-right: 0;
   }
@@ -6176,10 +6215,10 @@ body.is-preload #banner:before {
   #footer {
     padding: 3rem 0 1rem 0;
   }
-  #footer .content section {
+  #footer .cmp-container .div {
     width: 100%;
   }
-  #footer .content section:last-child {
+  #footer .cmp-container .div:last-child {
     padding-left: 0;
   }
 }
@@ -6304,7 +6343,7 @@ body:before {
   }
 }
 /* Heading */
-#heading {
+.cmp-container-heading .cmp-container {
   -ms-flex-align: center;
   -ms-flex-pack: center;
   background-color: #111111;
@@ -6334,173 +6373,173 @@ body:before {
   text-align: center;
   width: 100%;
 }
-#heading input, #heading select, #heading textarea {
+.cmp-container-heading .cmp-container input, .cmp-container-heading .cmp-container select, .cmp-container-heading .cmp-container textarea {
   color: #ffffff;
 }
-#heading a {
+.cmp-container-heading .cmp-container a {
   color: #ce1b28;
 }
-#heading strong, #heading b {
+.cmp-container-heading .cmp-container strong, .cmp-container-heading .cmp-container b {
   color: #ffffff;
 }
-#heading h1, #heading h2, #heading h3, #heading h4, #heading h5, #heading h6 {
+.cmp-container-heading .cmp-container h1, .cmp-container-heading .cmp-container h2, .cmp-container-heading .cmp-container h3, .cmp-container-heading .cmp-container h4, .cmp-container-heading .cmp-container h5, .cmp-container-heading .cmp-container h6 {
   color: #ffffff;
 }
-#heading blockquote {
+.cmp-container-heading .cmp-container blockquote {
   border-left-color: rgba(255, 255, 255, 0.25);
 }
-#heading code {
+.cmp-container-heading .cmp-container code {
   background: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#heading hr {
+.cmp-container-heading .cmp-container hr {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
-#heading input[type=submit],
-#heading input[type=reset],
-#heading input[type=button],
-#heading button,
-#heading .button {
+.cmp-container-heading .cmp-container input[type=submit],
+.cmp-container-heading .cmp-container input[type=reset],
+.cmp-container-heading .cmp-container input[type=button],
+.cmp-container-heading .cmp-container button,
+.cmp-container-heading .cmp-container .button {
   background-color: transparent;
   box-shadow: inset 0 0 0 1px #ffffff;
   color: #ffffff !important;
 }
-#heading input[type=submit]:hover,
-#heading input[type=reset]:hover,
-#heading input[type=button]:hover,
-#heading button:hover,
-#heading .button:hover {
+.cmp-container-heading .cmp-container input[type=submit]:hover,
+.cmp-container-heading .cmp-container input[type=reset]:hover,
+.cmp-container-heading .cmp-container input[type=button]:hover,
+.cmp-container-heading .cmp-container button:hover,
+.cmp-container-heading .cmp-container .button:hover {
   box-shadow: inset 0 0 0 1px #ce1b28;
   color: #ce1b28 !important;
 }
-#heading input[type=submit]:hover:active,
-#heading input[type=reset]:hover:active,
-#heading input[type=button]:hover:active,
-#heading button:hover:active,
-#heading .button:hover:active {
+.cmp-container-heading .cmp-container input[type=submit]:hover:active,
+.cmp-container-heading .cmp-container input[type=reset]:hover:active,
+.cmp-container-heading .cmp-container input[type=button]:hover:active,
+.cmp-container-heading .cmp-container button:hover:active,
+.cmp-container-heading .cmp-container .button:hover:active {
   background-color: rgba(206, 27, 40, 0.25);
 }
-#heading input[type=submit].primary,
-#heading input[type=reset].primary,
-#heading input[type=button].primary,
-#heading button.primary,
-#heading .button.primary {
+.cmp-container-heading .cmp-container input[type=submit].primary,
+.cmp-container-heading .cmp-container input[type=reset].primary,
+.cmp-container-heading .cmp-container input[type=button].primary,
+.cmp-container-heading .cmp-container button.primary,
+.cmp-container-heading .cmp-container .button.primary {
   box-shadow: none;
   background-color: #ce1b28;
   color: #ffffff !important;
 }
-#heading input[type=submit].primary:hover,
-#heading input[type=reset].primary:hover,
-#heading input[type=button].primary:hover,
-#heading button.primary:hover,
-#heading .button.primary:hover {
+.cmp-container-heading .cmp-container input[type=submit].primary:hover,
+.cmp-container-heading .cmp-container input[type=reset].primary:hover,
+.cmp-container-heading .cmp-container input[type=button].primary:hover,
+.cmp-container-heading .cmp-container button.primary:hover,
+.cmp-container-heading .cmp-container .button.primary:hover {
   background-color: #e2212f;
   box-shadow: none;
 }
-#heading input[type=submit].primary:hover:active,
-#heading input[type=reset].primary:hover:active,
-#heading input[type=button].primary:hover:active,
-#heading button.primary:hover:active,
-#heading .button.primary:hover:active {
+.cmp-container-heading .cmp-container input[type=submit].primary:hover:active,
+.cmp-container-heading .cmp-container input[type=reset].primary:hover:active,
+.cmp-container-heading .cmp-container input[type=button].primary:hover:active,
+.cmp-container-heading .cmp-container button.primary:hover:active,
+.cmp-container-heading .cmp-container .button.primary:hover:active {
   background-color: #b71824;
 }
-#heading label {
+.cmp-container-heading .cmp-container label {
   color: #ffffff;
 }
-#heading input[type=text],
-#heading input[type=password],
-#heading input[type=email],
-#heading input[type=tel],
-#heading input[type=search],
-#heading input[type=url],
-#heading select,
-#heading textarea {
+.cmp-container-heading .cmp-container input[type=text],
+.cmp-container-heading .cmp-container input[type=password],
+.cmp-container-heading .cmp-container input[type=email],
+.cmp-container-heading .cmp-container input[type=tel],
+.cmp-container-heading .cmp-container input[type=search],
+.cmp-container-heading .cmp-container input[type=url],
+.cmp-container-heading .cmp-container select,
+.cmp-container-heading .cmp-container textarea {
   background-color: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#heading input[type=text]:focus,
-#heading input[type=password]:focus,
-#heading input[type=email]:focus,
-#heading input[type=tel]:focus,
-#heading input[type=search]:focus,
-#heading input[type=url]:focus,
-#heading select:focus,
-#heading textarea:focus {
+.cmp-container-heading .cmp-container input[type=text]:focus,
+.cmp-container-heading .cmp-container input[type=password]:focus,
+.cmp-container-heading .cmp-container input[type=email]:focus,
+.cmp-container-heading .cmp-container input[type=tel]:focus,
+.cmp-container-heading .cmp-container input[type=search]:focus,
+.cmp-container-heading .cmp-container input[type=url]:focus,
+.cmp-container-heading .cmp-container select:focus,
+.cmp-container-heading .cmp-container textarea:focus {
   border-color: #ce1b28;
   box-shadow: 0 0 0 1px #ce1b28;
 }
-#heading select {
+.cmp-container-heading .cmp-container select {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.25)' /%3E%3C/svg%3E");
 }
-#heading select option {
+.cmp-container-heading .cmp-container select option {
   color: rgba(255, 255, 255, 0.5);
   background-color: #111111;
 }
-#heading input[type=checkbox] + label,
-#heading input[type=radio] + label {
+.cmp-container-heading .cmp-container input[type=checkbox] + label,
+.cmp-container-heading .cmp-container input[type=radio] + label {
   color: rgba(255, 255, 255, 0.5);
 }
-#heading input[type=checkbox] + label:before,
-#heading input[type=radio] + label:before {
+.cmp-container-heading .cmp-container input[type=checkbox] + label:before,
+.cmp-container-heading .cmp-container input[type=radio] + label:before {
   background: rgba(255, 255, 255, 0.075);
   border-color: rgba(255, 255, 255, 0.25);
 }
-#heading input[type=checkbox]:checked + label:before,
-#heading input[type=radio]:checked + label:before {
+.cmp-container-heading .cmp-container input[type=checkbox]:checked + label:before,
+.cmp-container-heading .cmp-container input[type=radio]:checked + label:before {
   background-color: #ce1b28;
   border-color: #ce1b28;
   color: #ffffff;
 }
-#heading input[type=checkbox]:focus + label:before,
-#heading input[type=radio]:focus + label:before {
+.cmp-container-heading .cmp-container input[type=checkbox]:focus + label:before,
+.cmp-container-heading .cmp-container input[type=radio]:focus + label:before {
   border-color: #ce1b28;
   box-shadow: 0 0 0 1px #ce1b28;
 }
-#heading ::-webkit-input-placeholder {
+.cmp-container-heading .cmp-container ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#heading :-moz-placeholder {
+.cmp-container-heading .cmp-container :-moz-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#heading ::-moz-placeholder {
+.cmp-container-heading .cmp-container ::-moz-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#heading :-ms-input-placeholder {
+.cmp-container-heading .cmp-container :-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
 }
-#heading ul.alt li {
+.cmp-container-heading .cmp-container ul.alt li {
   border-top-color: rgba(255, 255, 255, 0.25);
 }
-#heading table tbody tr {
+.cmp-container-heading .cmp-container table tbody tr {
   border-color: rgba(255, 255, 255, 0.25);
 }
-#heading table tbody tr:nth-child(2n+1) {
+.cmp-container-heading .cmp-container table tbody tr:nth-child(2n+1) {
   background-color: rgba(255, 255, 255, 0.075);
 }
-#heading table th {
+.cmp-container-heading .cmp-container table th {
   color: #ffffff;
 }
-#heading table thead {
+.cmp-container-heading .cmp-container table thead {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
-#heading table tfoot {
+.cmp-container-heading .cmp-container table tfoot {
   border-top-color: rgba(255, 255, 255, 0.25);
 }
-#heading table.alt tbody tr td {
+.cmp-container-heading .cmp-container table.alt tbody tr td {
   border-color: rgba(255, 255, 255, 0.25);
 }
-#heading .highlights .content {
+.cmp-container-heading .cmp-container .highlights .content {
   background: #111111;
   box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025);
 }
-#heading .testimonials .content {
+.cmp-container-heading .cmp-container .testimonials .content {
   background: #111111;
   box-shadow: 0px 0px 4px 1px rgba(255, 255, 255, 0.025);
 }
-#heading .testimonials .content .credit strong {
+.cmp-container-heading .cmp-container .testimonials .content .credit strong {
   color: #ce1b28;
 }
-#heading:before {
+.cmp-container-heading .cmp-container:before {
   background: linear-gradient(135deg, #ce1b28 0%, #111111 74%);
   content: " ";
   display: block;
@@ -6512,19 +6551,29 @@ body:before {
   width: 100%;
   z-index: 1;
 }
-#heading h1 {
+.cmp-container-heading .cmp-container > .text {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+.cmp-container-heading .cmp-container h2 {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+.cmp-container-heading .cmp-container h1 {
   margin-bottom: 0;
   position: relative;
   z-index: 2;
 }
 @media screen and (max-width: 980px) {
-  #heading {
+  .cmp-container-heading .cmp-container {
     padding: 2rem;
   }
 }
 
 /* Main */
-#main .content {
+.cmp-container-main .cmp-container {
   background: #ffffff;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.025);
@@ -6532,12 +6581,12 @@ body:before {
   padding: 3rem;
 }
 @media screen and (max-width: 980px) {
-  #main .content {
+  .cmp-container-main .cmp-container {
     padding: 2rem;
   }
 }
 @media screen and (max-width: 480px) {
-  #main .content {
+  .cmp-container-main .cmp-container {
     padding: 1.5rem;
   }
 }

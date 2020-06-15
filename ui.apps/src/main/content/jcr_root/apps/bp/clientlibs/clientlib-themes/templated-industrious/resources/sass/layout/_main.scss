@@ -1,7 +1,7 @@
 /* Main */
 
-	#main {
-		.content {
+	.cmp-container-main .cmp-container {
+//		.content {
 			background: _palette(bg);
 			border-radius: _size(border-radius);
 			box-shadow: 0px 0px 4px 1px _palette(border-lt);
@@ -15,5 +15,5 @@
 			@include breakpoint('<=xsmall') {
 				padding: 1.5rem;
 			}
-		}
+//		}
 	}

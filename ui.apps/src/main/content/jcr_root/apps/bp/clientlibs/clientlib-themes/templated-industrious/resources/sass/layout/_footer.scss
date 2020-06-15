@@ -13,10 +13,10 @@
 			}
 		}
 
-		.content {
+		.cmp-container {
 			@include vendor('display', 'flex');
 
-			section {
+			.text {
 				width: 25%;
 
 				&:first-child {
@@ -43,10 +43,10 @@
 		}
 
 		@include breakpoint('<=medium') {
-			.content {
+			.cmp-container {
 				@include vendor('flex-wrap', 'wrap');
 
-				section {
+				.text {
 					width: 50%;
 
 					&:first-child {
@@ -60,8 +60,8 @@
 		@include breakpoint('<=small') {
 			@include padding(3rem, 0);
 
-			.content {
-				section {
+			.cmp-container {
+				.div {
 					width: 100%;
 
 					&:last-child {

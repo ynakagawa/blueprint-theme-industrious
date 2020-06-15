@@ -1,6 +1,6 @@
 /* Highlights */
 
-	.highlights {
+	.cmp-container-highlights .cmp-container {
 		width: 100%;
 		margin: (_size(element-margin) * 1.25) 0;
 
@@ -9,6 +9,55 @@
 			gutters:			3rem,
 			vertical-align:		stretch
 		));
+
+		//Title Component
+		.title {
+			border-radius: _size(border-radius);
+			height: 100%;
+			padding: 3rem;
+			text-align: center;
+			background-color:#fff;
+			margin:1px;
+			min-height:250px;
+			width:33%;
+
+			.icon {
+				font-size: 5rem;
+			}
+		}
+		//Teaser Component
+		.teaser {
+			border-radius: _size(border-radius);
+			height: 100%;
+			padding: 3rem;
+			text-align: center;
+			background-color:#fff;
+			margin:1px;
+			min-height:250px;
+			width:33%;
+
+
+			.icon {
+				font-size: 5rem;
+			}
+		}
+		//List COmponent
+		.list {
+			border-radius: _size(border-radius);
+			height: 100%;
+			padding: 3rem;
+			text-align: left;
+			background-color:#fff;
+			margin:1px;
+			min-height:250px;
+			width:33%;
+
+
+			.icon {
+				font-size: 5rem;
+			}
+		}
+
 
 		.content {
 			border-radius: _size(border-radius);

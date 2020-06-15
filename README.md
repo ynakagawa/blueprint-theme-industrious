@@ -2,15 +2,12 @@
 
 This is the code for the DF Blueprint Reference skin: 
 
-# Lessons
-1. Creating an AEM Project
-2. Arranging the HTML for easier AEM Import
-3. Converting HTML libraries to AEM Clientlibs
-4. Configuring your AEM Page template
-5. Container Component
-6. Embed Component
-
-##LESSON 1 - Setup AEM using DF Blueprint Archetype
+##Lesson 1 - Setup AEM using DF Blueprint Archetype
+1. Creating an AEM Project using the DF Blueprint Archetype
+2. Arranging the HTML for easier AEM Import & creating the AEM Clientlibs
+3. Configuring your AEM Page template
+4. Container Component
+5. Embed Component
 
 ```
 mvn archetype:generate \
@@ -40,14 +37,27 @@ mvn archetype:generate \
   -DappTitle=bp
 ```
 
-##Lesson 2
-1. Download HTML template-industrious & unpack
+```
+mvn -PautoInstallSinglePackage clean install
+```
 
-2. rename assets folder to resources
+## Lesson 2 - Arranging HTML for easier AEM Import
+
+1. Download HTML template-industrious & unpack [html zip](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:c2227230-ccda-47b5-82f2-9192b55e1286)
+
+
+  _For this tutorial, i went to [Templated.io](https://templated.co/) & downloaded a free HTML template.  Templated provides a collection of simple HTML5 & Responsive site templates, released for free under the Creative Commons._
+  _The template i chose was called [Industrous](https://templated.co/industrious)_
+
+2. Rename assets folder to resources
 
 3. move html files & images into resources folder
 
-4. De-compile & modify font-awesome.min.css (I used https://unminify.com, sample provided)
+   _AEM Clientlib feature AllowProxy property will expose the folder "resource"_ 
+   https://docs.adobe.com/content/help/en/experience-manager-65/developing/introduction/clientlibs.html#locating-a-client-library-folder-and-using-the-proxy-client-libraries-servlet
+
+4. De-compile & modify font-awesome.min.css _I used https://unminify.com_ [Sample provided](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)
+
    * create file font-awesome.css & paste unminified css & place in resources/css
    * delete file font-awesome.min.css
    * create file font-awesome.scss & place in resources/sass/
@@ -131,36 +141,138 @@ s
     
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
- 
-###Lesson 3
+_**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)**_
 
+todo: Menu font icon is missing
+
+
+## Lesson 3 - Configuring your AEM Page template
+[Lesson 3 AEM CRX Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
+  
 1. Update Template thumbnail
    * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
 2. Edit Page Template > Page Policy: Add clientlib theme.templated-industrious
 3. Edit Text Component config:  Enable show HTML Source
-4. Edit Container COmponent config: 
+4. Edit Container Component config: 
     * Enable background image
     * Add Style Group:  Render
     * Save as policy: theme-industrious
 5. Edit Header XF
     * Edit Template & allow for bp.structure components
-    * Remove existing component:  Navigation, Language Navigation, Search
-    * Add Container Component wtih ID: Header-top
+    * Remove existing component:  Language Navigation, Search
     * Add embed component inside Container Component
        * ID:  header
        * HTML should be taken from HTML sample, code within <header> tags
        * make sure to change link to /content/bp/us/en/home.html
-5. Update Nav (account for AEM changing DIV to NAV)
-    * modify demo HTML files replacing NAV with DIV within Head
-    * make coresponding update to resources/sass/layout_header.scss (line 51) 
-    * compile sass by running 
+    * Update Navigation component & add menu to ID field
+6. Create HomePage to validate clientLib through top Menu Nav
+    * Location: /content/sites/bp/us/en
+    * Page properties: Title= Home, name= home
+    * You can use AEM Preview to view this or you can remove "editor.html" --> http://localhost:4502/content/bp/us/en/home.html
+       * Make sure the Top Nav appears & the menu scrolls out when clicking Menu
+7. Edit Footer XF
+    * Remove the text component containing copyright dummy data
+    * Add Container Component with footer as the ID value
+    * Add 3 text components (We will use CSS to convert into columns)
+    * *If you wish to use AEM's layout feature to resize so they appear as columns, then do not use a Container component
+    * Edit Page Template & Configure XF text components to allow for HTML source
+    * Add html content for all three text components (using the HTML Source option)
+    * Footer will appear vertical, fix this by updating CSS to map to AEM
+        1. Change .content to .cmp-container (line 16,46,63)
+        2. Change section to .text (line 19,49)
+        3. Change section to .div (line 64)
+  
+  [Lesson 3 AEM Content Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
+  
+     
+## Lesson 4 - Container Components
 
- 
+[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
+
+
+1. CTA Style for Container Component
+
+    * Make sure Text has HTML Source enabled (use Template Policy Editor)
+    * Open Home page & Add Container Component.  Within the Container, add a Text & Teaser (add dummy content)
+    * View Source to see how the page rendered, notice the CTA ID & the class=cmp-container (we will replace CTA wil style system)
+    * Open template editor & click on Container to configure:
+    * Add a style "CTA" under group "Render".  Value should be cmp-container-cta.  (Publish template when done)
+    * In the Home page, edit mode, use the Style System selector & choose CTA as the render option
+    * In Preview, inspect the page:  You will notice that cmp-container-cta DIV was added on top of the cta div.
+    * Open file resources/sass/layout/_cta.scss, change #cta to .cmp-container-cta .cmp-container
+    * recompile sass with:  sass --no-source-map sass:css & push into AEM
+    * Make corresponding updates to resources/index.html
+       * add DIV with class=cmp-container-cta above DIV with ID=cta
+       * remove ID=CTA & replace with class=cmp-container
+    * In the Edit Mode of Home page, toggle CTA on/off to view experience
+
+
+2. Heading Style for Container Component
+
+   * Add style sytem option for Heading wtih value .cmp-container-heading (in Template Policy Editor)
+   * In the Elements page, add a container component with ID header
+   * Inside the Container Component, add a text and|or title component
+   * (if the CSS causes the AEM component bars to get misplaced, remove the ID heading & add it back in after the nested component placements) 
+   * Inspect the Elements page & notice the DIV with the ID heading
+   * Use the Style System to select Heading & inspect again:  Notice again the addition of the DIV with class cmp-container-heading
+   * Modify file resources/sass/layout/_heading.scss, change #heading to .cmp-container-heading .cmp-container
+   * Also copy h1 CSS to h2 to allow for component flexibility (Title uses H2)
+   * To add support for Text Components, add > .text
+   * recompile sass with:  sass --no-source-map sass:css & push into AEM
+   * Make corresponding updates to resources/generic.html & elements.html
+      * add DIV with class=cmp-container-cta above DIV with ID=cta
+      * remove ID=CTA & replace with class=cmp-container
+    * In Edit Mode of Elements or Generic page, toggle Heading on/off to view experience
+
+3. Main Style for Container Component
+
+   * Open Generic Page, add Separator component, then a Container component with a nested Text Component with dummy data
+   * Open template policy editor & make the following updates:
+      * Change "Reader" header to "background layouts"
+      * Create a new heading caled "Content Layouts"
+      * Change "CTA" to "Scrolling" & Heading to "Fixed"
+      * Add a new entry under "Content Layouts" called "main" with value "cmp-container-main"
+  * Open the sass file resources/sass/layout/_main.scss and modify:
+      * change #main to .cmp-container-main .cmp-container
+      * comment out the nested .content class to allow for any component within this main Container component
+  * In Edit Mode of Generic, toggle on main to view experience
+  * The title appear's smaller then the HTM version in all instances.  HTML is using H1 where AEM components start at H2
+      * edit resources/sass/base/_typography.scss & make H2 match H1
       
+      
+4. Highlights Style for Container Component
 
+   * Open template policy editor & make the following updates:
+      * Add a new entry under "Content Layouts" called "Highlights" with value "cmp-container-highlights"
+   * Open Edit Page, add Separator component
+   * Within the Container components that should be supported in this experience:
+      * Add Title Component with dummy data
+      * Add Text Component with dummy data
+      * Add List Component with dummy data
+   * Use the Style System to select "Highights"
+   * Open sass file resources/sass/components/_highights.scss & modify:
+      * Change .highlights to .cmp-controller-highlights .cmp-controller
+      * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
+      * copy/paste & adjuste from class .content
 
+[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
 
+##Lesson 5 - Embed Component
 
+[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
+
+1. Create an embeddable stub
+   * Open CRX DE Lite, copy /apps/core/wcm/components/embed/v1/embed/embeddable to /apps/bp/components/embed
+   * copy /apps/core/wcm/components/embed/v1/embed/cq:dialog to /apps/bp/components/embed/cq:dialog
+   * change the node /apps/bp/components/embed/embeddable/youtube to video
+   * change the underlying file from youtube.html to video.html
+   * change the jcr:title property on the video node from Youtube to Video
+   * place the entire html fragment into the video.html file
+2. Validate the experience, then make the video path authorable by creating a dialog entry
+3. Configure the Template policy to only allow my video embed
+   
+[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
+ 
 ## Modules
 
 The main parts of the project are:
