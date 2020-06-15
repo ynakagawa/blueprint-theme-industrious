@@ -309,4 +309,4 @@ _**Lesson Files**_
    
 _**Lesson Files**_
 1. [Lesson 5 AEM Content Package](dist/packages/Package-Lesson-5.zip)
-2. [Lesson 5 AEM Code Package](dist/packages/aem-guides-bp.all-0.0.5-SNAPSHOT.zip)
+2. [Lesson 5 AEM Code Package](dist/packages/aem-guides-bp.all-0.0.2-SNAPSHOT.zip)
