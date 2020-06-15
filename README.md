@@ -1,14 +1,21 @@
 # DF Blueprint - Converting a Free HTML Template into an AEM Theme
 
-This is the code for the DF Blueprint Reference skin: 
+This Tutorial will walk through the conversion of a free HTML template into AEM - For use on Digital Foundation Blueprint based AEM implementations.  While a Free HTML Template from Templated was used, the idea is that any CMS or other existing website's "skin" can be migrated over to AEM easily.
 
-##Lesson 1 - Setup AEM using DF Blueprint Archetype
+The output of this tutorial is to illustrate how the Front End work can happen within the context of an Adobe Experience Manager platform.
+
+
+## Lessons
 1. Creating an AEM Project using the DF Blueprint Archetype
 2. Arranging the HTML for easier AEM Import & creating the AEM Clientlibs
 3. Configuring your AEM Page template
 4. Container Component
 5. Embed Component
 
+## Lesson 1 (Optional) - Setup AEM using DF Blueprint Archetype
+_**Please skip ahead if you have already installed AEM with the BP Archetype**_
+
+1. Create a AEM Project Archetype using Maven Archetypes version 23+
 ```
 mvn archetype:generate \
   -DarchetypeGroupId=com.adobe.granite.archetypes \
@@ -37,14 +44,14 @@ mvn archetype:generate \
   -DappTitle=bp
 ```
 
+2. Install on your local AEM
 ```
 mvn -PautoInstallSinglePackage clean install
 ```
 
 ## Lesson 2 - Arranging HTML for easier AEM Import
 
-1. Download HTML template-industrious & unpack [html zip](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:c2227230-ccda-47b5-82f2-9192b55e1286)
-
+1. Download HTML template-industrious & unpack 
 
   _For this tutorial, i went to [Templated.io](https://templated.co/) & downloaded a free HTML template.  Templated provides a collection of simple HTML5 & Responsive site templates, released for free under the Creative Commons._
   _The template i chose was called [Industrous](https://templated.co/industrious)_
@@ -65,7 +72,29 @@ mvn -PautoInstallSinglePackage clean install
         * ../fonts --> ../../resources/fonts
    * comment out reference in resources/sass/main.scss to the correct scss file (line 8)
         *//  @import 'font-awesome.scss';
-       
+
+font-awesome.scss
+```
+@font-face {
+    font-family: "FontAwesome";
+    src: url("../../resources/fonts/fontawesome-webfont.eot?v=4.7.0");
+    src: url("../../resources/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../../resources/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../../resources/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../../resources/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../../resources/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+```
+main.scss
+```
+@font-face {
+    font-family: "FontAwesome";
+    src: url("../../resources/fonts/fontawesome-webfont.eot?v=4.7.0");
+    src: url("../../resources/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../../resources/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../../resources/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../../resources/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../../resources/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+```
+
+
 4. Modify index.html file references
    * remove all instances of assets/ 
    * change header element from nav to div
@@ -86,7 +115,7 @@ mvn -PautoInstallSinglePackage clean install
    * change image path to images/
    * fix bad references to .png files by changing to .jpg
 
-7. Modify resources/sass/layout_menu.scss
+7. Modify resources/sass/layout/_menu.scss
    * line 30 .links to .cmp-navigation__group
  
 8. Modify resources/sass/layout/_banner.scss
@@ -94,6 +123,14 @@ mvn -PautoInstallSinglePackage clean install
 
 9. Modify resources/sass/layout/_cta.scss
    * modify image reference to ../images/cta01.jpg
+   
+10. Modify resources/sass/layout/_header.scss
+   * modify line 52, nav to div:
+   * modify image reference to ../images/bg.jpg
+   
+```
+> div {
+```
       
 10. Compile with sass running sass --no-source-map sass:css        
 
@@ -135,19 +172,19 @@ main.js
           categories="[theme.templated-industrious]" />
 s
 ```
- 
+
      
  9. Navigate to http://localhost:4502/etc.clientlibs/bp/clientlibs/clientlib-themes/templated-industrious/resources/generic.html to validate HTML working with demo files
     
  10. Navigate to http://localhost:4502/crx/de/index.jsp#/apps/bp/clientlibs/clientlib-themes/templated-industrious to validate AEM Clientlib creation
  
-_**To skip the above & download the reformatted files [here](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:6fc2fdaf-75a5-4d53-bde5-81949b4cab86)**_
+_**Lesson Files**_
 
-todo: Menu font icon is missing
-
+1. AEM Code Install: [aem-guides-bp.all-0.0.2-SNAPSHOT.zip](dist/packages/aem-guides-bp.all-0.0.2-SNAPSHOT.zip) 
+2. Original HTML Files:  [templated-industrious.zip](dist/packages/templated-industrious.zip)
+3. Modified HTM Files: [templated-industrious-modified.zip](dist/templated-industrious-modified.zip )
 
 ## Lesson 3 - Configuring your AEM Page template
-[Lesson 3 AEM CRX Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
   
 1. Update Template thumbnail
    * go to Hammer > Templates > BP > Content Page : Properties & upload new image (LESSON3_template-thumb.png)
@@ -182,13 +219,12 @@ todo: Menu font icon is missing
         2. Change section to .text (line 19,49)
         3. Change section to .div (line 64)
   
-  [Lesson 3 AEM Content Package](https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:4b6d8170-ab40-4692-92bd-a3ecf174a469)
+
+_**Lesson Files**_
+1. AEM Content Package [Package-Lesson-3.zip](packages/Package-Lesson-3.zip)
   
      
 ## Lesson 4 - Container Components
-
-[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
-
 
 1. CTA Style for Container Component
 
@@ -255,12 +291,12 @@ todo: Menu font icon is missing
       * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
       * copy/paste & adjuste from class .content
 
-[Lesson 4 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:bf30d08e-8cab-4bbe-8532-26d02e163b17)
+_**Lesson Files**_
+1. [Lesson 4 AEM Content Package ](dist/packages/Package-Lesson-4.zip)
+2. [Lesson 4 AEM Code Package](dist/packages/aem-guides-bp.all-0.0.4-SNAPSHOT.zip)
+
 
 ##Lesson 5 - Embed Component
-
-[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
-
 1. Create an embeddable stub
    * Open CRX DE Lite, copy /apps/core/wcm/components/embed/v1/embed/embeddable to /apps/bp/components/embed
    * copy /apps/core/wcm/components/embed/v1/embed/cq:dialog to /apps/bp/components/embed/cq:dialog
@@ -271,66 +307,6 @@ todo: Menu font icon is missing
 2. Validate the experience, then make the video path authorable by creating a dialog entry
 3. Configure the Template policy to only allow my video embed
    
-[Lesson 5 AEM Content Package ] (https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:f86d3601-23d5-435a-a40e-845326271f43)
- 
-## Modules
-
-The main parts of the project are:
-
-* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
-* ui.content: contains sample content using the components from the ui.apps
-* ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
-* ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
-
-## How to build
-
-To build all the modules run in the project root directory the following command with Maven 3:
-
-    mvn clean install
-
-If you have a running AEM instance you can build and package the whole project and deploy into AEM with  
-
-    mvn clean install -PautoInstallPackage
-
-Depending on your maven configuration, you may find it helpful to force the resolution of the Adobe public repo with
-
-    mvn clean install -PautoInstallPackage -Padobe-public
-    
-Or to deploy it to a publish instance, run
-
-    mvn clean install -PautoInstallPackagePublish
-    
-Or alternatively
-
-    mvn clean install -PautoInstallPackage -Daem.port=4503
-
-Or to deploy only the bundle to the author, run
-
-    mvn clean install -PautoInstallBundle
-
-## Testing
-
-There are three levels of testing contained in the project:
-
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
-
-    ```
-    mvn clean test
-    ```
-
-* server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
-
-    ```
-    mvn clean verify -PintegrationTests
-    ```
-
-* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test, go in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
-
-
-## Maven settings
-
-The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
-
-    http://helpx.adobe.com/experience-manager/kb/SetUpTheAdobeMavenRepository.html
-
+_**Lesson Files**_
+1. [Lesson 5 AEM Content Package](dist/packages/Package-Lesson-5.zip)
+2. [Lesson 5 AEM Code Package](dist/packages/aem-guides-bp.all-0.0.5-SNAPSHOT.zip)
