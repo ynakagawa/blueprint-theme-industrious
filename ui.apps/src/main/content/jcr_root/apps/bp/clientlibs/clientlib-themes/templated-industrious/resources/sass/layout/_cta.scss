@@ -1,22 +1,50 @@
-/* CTA */
-
-	.cmp-container-cta .cmp-container {
-		@include color(accent1);
-		background-attachment: fixed;
-		background-image: linear-gradient(transparentize(_palette(accent1,bg), 0.75), transparentize(_palette(accent1,bg), 0.75)), url(../images/cta01.jpg);
-		background-position: bottom;
-		background-repeat: no-repeat;
-		background-size: cover;
+.cmp-container-cta {
+	//add opacity to author overwridden image
+	opacity: 0.6;
+}
+.cmp-container-cta .cmp-container {
+	@include color(accent1);
+	background-attachment: fixed;
+	background-image: linear-gradient(transparentize(_palette(accent1,bg), 0.75), transparentize(_palette(accent1,bg), 0.75)), url(../images/cta01.jpg);
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+	//keep original
+	.inner {
 		position: relative;
-		text-align: center;
-		z-index: 1;
-
-		.inner {
-			position: relative;
-			z-index: 3;
-		}
-
-		@include breakpoint('<=medium') {
-			background-attachment: scroll;
-		}
+		z-index: 3;
 	}
+	//text component
+	.text {
+		position: relative;
+		z-index: 3;
+		margin: 0 auto;
+		width: 75rem;
+		max-width: calc(100% - 6rem);
+	}
+
+	//teaser component
+	.teaser {
+		position: relative;
+		z-index: 3;
+		margin: 0 auto;
+		width: 75rem;
+		max-width: calc(100% - 6rem);
+	}
+
+	//title component
+	.title {
+		position: relative;
+		z-index: 3;
+		margin: 0 auto;
+		width: 75rem;
+		max-width: calc(100% - 6rem);
+	}
+
+	@include breakpoint('<=medium') {
+		background-attachment: scroll;
+	}
+}

@@ -1,114 +1,84 @@
 /* Highlights */
 
-	.cmp-container-highlights .cmp-container {
-		width: 100%;
-		margin: (_size(element-margin) * 1.25) 0;
+.cmp-container-highlights .cmp-container {
+	width: 100%;
+	margin: (_size(element-margin) * 1.25) 0;
 
-		@include flexgrid((
-			columns:			3,
-			gutters:			3rem,
-			vertical-align:		stretch
+	@include flexgrid((
+					columns:			3,
+					gutters:			3rem,
+					vertical-align:		stretch
+	));
+	//original
+	.content {
+		border-radius: _size(border-radius);
+		height: 100%;
+		padding: 3rem;
+		text-align: center;
+
+		.icon {
+			font-size: 5rem;
+		}
+	}
+	//text component
+	.text {
+		border-radius: _size(border-radius);
+		height: 100%;
+		padding: 3rem;
+		text-align: center;
+
+		.icon {
+			font-size: 5rem;
+		}
+	}
+
+	> div {
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+	@include breakpoint('<=medium') {
+		@include flexgrid-resize((
+						columns:		2,
+						gutters:		2rem,
+						prev-columns:	3
 		));
 
-		//Title Component
-		.title {
-			border-radius: _size(border-radius);
-			height: 100%;
-			padding: 3rem;
-			text-align: center;
-			background-color:#fff;
-			margin:1px;
-			min-height:250px;
-			width:33%;
-
-			.icon {
-				font-size: 5rem;
-			}
-		}
-		//Teaser Component
-		.teaser {
-			border-radius: _size(border-radius);
-			height: 100%;
-			padding: 3rem;
-			text-align: center;
-			background-color:#fff;
-			margin:1px;
-			min-height:250px;
-			width:33%;
-
-
-			.icon {
-				font-size: 5rem;
-			}
-		}
-		//List COmponent
-		.list {
-			border-radius: _size(border-radius);
-			height: 100%;
-			padding: 3rem;
-			text-align: left;
-			background-color:#fff;
-			margin:1px;
-			min-height:250px;
-			width:33%;
-
-
-			.icon {
-				font-size: 5rem;
-			}
-		}
-
-
 		.content {
-			border-radius: _size(border-radius);
-			height: 100%;
+			padding: 2rem;
+		}
+		.text {
+			padding: 2rem;
+		}
+	}
+
+	@include breakpoint('<=small') {
+		@include flexgrid-resize((
+						columns:		1,
+						gutters:		2rem,
+						prev-columns:	(3, 2)
+		));
+
+	}
+}
+
+@mixin color-highlights($p: null) {
+	$highlight: _palette($p, highlight);
+
+	.cmp-container-highlights .cmp-container  {
+		.content {
+			background: _palette($p, bg);
+			box-shadow: 0px 0px 4px 1px _palette($p, border-lt);
+		}
+		.text .cmp-text {
+			background: _palette($p, bg);
+			box-shadow: 0px 0px 4px 1px _palette($p, border-lt);
 			padding: 3rem;
-			text-align: center;
-
-			.icon {
-				font-size: 5rem;
-			}
-		}
-
-		> div {
-
-			> :last-child {
-				margin-bottom: 0;
-			}
-
-		}
-
-		@include breakpoint('<=medium') {
-			@include flexgrid-resize((
-				columns:		2,
-				gutters:		2rem,
-				prev-columns:	3
-			));
-
-			.content {
-				padding: 2rem;
-			}
-		}
-
-		@include breakpoint('<=small') {
-			@include flexgrid-resize((
-				columns:		1,
-				gutters:		2rem,
-				prev-columns:	(3, 2)
-			));
-
 		}
 	}
+}
 
-	@mixin color-highlights($p: null) {
-		$highlight: _palette($p, highlight);
-
-		.highlights {
-			.content {
-				background: _palette($p, bg);
-				box-shadow: 0px 0px 4px 1px _palette($p, border-lt);
-			}
-		}
-	}
-
-	@include color-highlights;
+@include color-highlights;

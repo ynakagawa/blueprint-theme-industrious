@@ -197,8 +197,9 @@ _**Lesson Files**_
 5. Edit Header XF
     * Edit Template & allow for bp.structure components
     * Remove existing component:  Language Navigation, Search
+    * Add Container Component
     * Add embed component inside Container Component
-       * ID:  header
+       * ID should be header
        * HTML should be taken from HTML sample, code within <header> tags
        * make sure to change link to /content/bp/us/en/home.html
     * Update Navigation component & add menu to ID field
@@ -209,7 +210,8 @@ _**Lesson Files**_
        * Make sure the Top Nav appears & the menu scrolls out when clicking Menu
 7. Edit Footer XF
     * Remove the text component containing copyright dummy data
-    * Add Container Component with footer as the ID value
+    * Add Container Component
+    * Add ID Footer to the top level responsive container
     * Add 3 text components (We will use CSS to convert into columns)
     * *If you wish to use AEM's layout feature to resize so they appear as columns, then do not use a Container component
     * Edit Page Template & Configure XF text components to allow for HTML source
@@ -226,7 +228,93 @@ _**Lesson Files**_
      
 ## Lesson 4 - Container Components
 
-1. CTA Style for Container Component
+1. Heading Style for Container Component
+
+   * Add style sytem option for Heading wtih value .cmp-container-heading (in Template Policy Editor)
+   * In the Elements page, add a container component with ID header
+   * Inside the Container Component, add a text and|or title component
+   * (if the CSS causes the AEM component bars to get misplaced, remove the ID heading & add it back in after the nested component placements) 
+   * Inspect the Elements page & notice the DIV with the ID heading
+   * Use the Style System to select Heading & inspect again:  Notice again the addition of the DIV with class cmp-container-heading
+   * Modify file resources/sass/layout/_heading.scss
+       * change #heading to .cmp-container-heading .cmp-container
+       * copy h1 CSS to h2 to allow for component flexibility (Title uses H2)
+       * To add support for Text Components, add > .text
+       * To add support for Title Components, add > .title
+   * recompile sass with:  sass --no-source-map sass:css & push into AEM
+   * Make corresponding updates to resources/generic.html & elements.html
+      * add DIV with class=cmp-container-cta above DIV with ID=cta
+      * remove ID=CTA & replace with class=cmp-container
+    * In Edit Mode of Elements or Generic page, toggle Heading on/off to view experience
+
+_heading.scss
+``` 
+/* Heading */
+
+	.cmp-container-heading .cmp-container {
+		-ms-flex-align: center;
+		-ms-flex-pack: center;
+		@include color(accent2);
+		@include vendor('align-items', 'center');
+		@include vendor('display', 'flex');
+		@include vendor('justify-content', 'center');
+		background-image: linear-gradient(transparentize(_palette(accent2,bg), 0.75), transparentize(_palette(accent2,bg), 0.75));
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-top: 0;
+		display: -ms-flexbox;
+		height: 15rem !important;
+		min-height: 15rem;
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		width: 100%;
+
+		&:before {
+			background: linear-gradient(135deg, _palette(accent1,bg) 0%,_palette(accent2,bg) 74%);
+			content: ' ';
+			display: block;
+			height: 100%;
+			left: 0;
+			opacity: 0.6;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 1;
+		}
+        // Add CSS for Text Component
+		> .text {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
+		}
+		// Add CSS for Title Component
+		> .title {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
+		}
+
+		h1 {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
+		}
+		h2 {
+			margin-bottom: 0;
+			position: relative;
+			z-index: 2;
+		}
+
+		@include breakpoint('<=medium') {
+			padding: 2rem;
+		}
+	}
+
+```
+
+2. CTA Style for Container Component
 
     * Make sure Text has HTML Source enabled (use Template Policy Editor)
     * Open Home page & Add Container Component.  Within the Container, add a Text & Teaser (add dummy content)
@@ -235,30 +323,71 @@ _**Lesson Files**_
     * Add a style "CTA" under group "Render".  Value should be cmp-container-cta.  (Publish template when done)
     * In the Home page, edit mode, use the Style System selector & choose CTA as the render option
     * In Preview, inspect the page:  You will notice that cmp-container-cta DIV was added on top of the cta div.
-    * Open file resources/sass/layout/_cta.scss, change #cta to .cmp-container-cta .cmp-container
+    * Open file resources/sass/layout/_cta.scss:
+         * change #cta to .cmp-container-cta .cmp-container
+         * Supplement inner class with additional references for AEM components (Teaser, Title, Text)
+         * Add .cmp_container-cta CSS element for opacity
+         
     * recompile sass with:  sass --no-source-map sass:css & push into AEM
+    (optional)
     * Make corresponding updates to resources/index.html
        * add DIV with class=cmp-container-cta above DIV with ID=cta
        * remove ID=CTA & replace with class=cmp-container
     * In the Edit Mode of Home page, toggle CTA on/off to view experience
 
+_cta.scss 
+```
+ .cmp-container-cta {
+		//add opacity to author overwridden image
+		opacity: 0.6;
+	}
+	.cmp-container-cta .cmp-container {
+		@include color(accent1);
+		background-attachment: fixed;
+		background-image: linear-gradient(transparentize(_palette(accent1,bg), 0.75), transparentize(_palette(accent1,bg), 0.75)), url(../images/cta01.jpg);
+		background-position: bottom;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		text-align: center;
+		z-index: 1;
+        //keep original
+		.inner {
+			position: relative;
+			z-index: 3;
+		}
+		//text component
+		.text {
+			position: relative;
+			z-index: 3;
+			margin: 0 auto;
+			width: 75rem;
+			max-width: calc(100% - 6rem);
+		}
 
-2. Heading Style for Container Component
+		//teaser component
+		.teaser {
+			position: relative;
+			z-index: 3;
+			margin: 0 auto;
+			width: 75rem;
+			max-width: calc(100% - 6rem);
+		}
 
-   * Add style sytem option for Heading wtih value .cmp-container-heading (in Template Policy Editor)
-   * In the Elements page, add a container component with ID header
-   * Inside the Container Component, add a text and|or title component
-   * (if the CSS causes the AEM component bars to get misplaced, remove the ID heading & add it back in after the nested component placements) 
-   * Inspect the Elements page & notice the DIV with the ID heading
-   * Use the Style System to select Heading & inspect again:  Notice again the addition of the DIV with class cmp-container-heading
-   * Modify file resources/sass/layout/_heading.scss, change #heading to .cmp-container-heading .cmp-container
-   * Also copy h1 CSS to h2 to allow for component flexibility (Title uses H2)
-   * To add support for Text Components, add > .text
-   * recompile sass with:  sass --no-source-map sass:css & push into AEM
-   * Make corresponding updates to resources/generic.html & elements.html
-      * add DIV with class=cmp-container-cta above DIV with ID=cta
-      * remove ID=CTA & replace with class=cmp-container
-    * In Edit Mode of Elements or Generic page, toggle Heading on/off to view experience
+		//title component
+		.title {
+			position: relative;
+			z-index: 3;
+			margin: 0 auto;
+			width: 75rem;
+			max-width: calc(100% - 6rem);
+		}
+
+		@include breakpoint('<=medium') {
+			background-attachment: scroll;
+		}
+	}
+```
 
 3. Main Style for Container Component
 
@@ -271,13 +400,48 @@ _**Lesson Files**_
   * Open the sass file resources/sass/layout/_main.scss and modify:
       * change #main to .cmp-container-main .cmp-container
       * comment out the nested .content class to allow for any component within this main Container component
+      * original HTML used inner class to create a margin.  add the contents into this class
   * In Edit Mode of Generic, toggle on main to view experience
   * The title appear's smaller then the HTM version in all instances.  HTML is using H1 where AEM components start at H2
       * edit resources/sass/base/_typography.scss & make H2 match H1
-      
+
+_main.scss
+```
+.cmp-container-main .cmp-container  {
+	//		.content {
+	//add inner css
+	margin: 0 auto;
+	width: 75rem;
+	max-width: calc(100% - 6rem);
+
+	background: _palette(bg);
+	border-radius: _size(border-radius);
+	box-shadow: 0px 0px 4px 1px _palette(border-lt);
+	margin-bottom: _size(element-margin);
+	padding: 3rem;
+
+	@include breakpoint('<=medium') {
+		padding: 2rem;
+	}
+
+	@include breakpoint('<=xsmall') {
+		padding: 1.5rem;
+	}
+	//		}
+}
+```
+_typography.scss
+```
+    h2 {
+		font-size: 3rem;
+	    line-height: 1.2;
+    }
+
+```      
       
 4. Highlights Style for Container Component
 
+   * Open Home Page
    * Open template policy editor & make the following updates:
       * Add a new entry under "Content Layouts" called "Highlights" with value "cmp-container-highlights"
    * Open Edit Page, add Separator component
@@ -290,6 +454,94 @@ _**Lesson Files**_
       * Change .highlights to .cmp-controller-highlights .cmp-controller
       * for every component you wish to support, add a class entry for that component.  i added .text, .list, .teaser
       * copy/paste & adjuste from class .content
+
+_highlights.scss
+```
+/* Highlights */
+
+	.cmp-container-highlights .cmp-container {
+		width: 100%;
+		margin: (_size(element-margin) * 1.25) 0;
+
+		@include flexgrid((
+			columns:			3,
+			gutters:			3rem,
+			vertical-align:		stretch
+		));
+        //original
+		.content {
+			border-radius: _size(border-radius);
+			height: 100%;
+			padding: 3rem;
+			text-align: center;
+
+			.icon {
+				font-size: 5rem;
+			}
+		}
+		//text component
+		.text {
+			border-radius: _size(border-radius);
+			height: 100%;
+			padding: 3rem;
+			text-align: center;
+
+			.icon {
+				font-size: 5rem;
+			}
+		}
+
+		> div {
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+		@include breakpoint('<=medium') {
+			@include flexgrid-resize((
+				columns:		2,
+				gutters:		2rem,
+				prev-columns:	3
+			));
+
+			.content {
+				padding: 2rem;
+			}
+			.text {
+				padding: 2rem;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			@include flexgrid-resize((
+				columns:		1,
+				gutters:		2rem,
+				prev-columns:	(3, 2)
+			));
+
+		}
+	}
+
+	@mixin color-highlights($p: null) {
+		$highlight: _palette($p, highlight);
+
+		.cmp-container-highlights .cmp-container  {
+			.content {
+				background: _palette($p, bg);
+				box-shadow: 0px 0px 4px 1px _palette($p, border-lt);
+			}
+			.text .cmp-text {
+				background: _palette($p, bg);
+				box-shadow: 0px 0px 4px 1px _palette($p, border-lt);
+				padding: 3rem;
+			}
+		}
+	}
+
+	@include color-highlights;
+```
 
 _**Lesson Files**_
 1. [Lesson 4 AEM Content Package ](dist/packages/Package-Lesson-4.zip)
