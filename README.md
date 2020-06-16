@@ -559,6 +559,108 @@ _**Lesson Files**_
 2. Validate the experience, then make the video path authorable by creating a dialog entry
 3. Configure the Template policy to only allow my video embed
    
+/apps/bp/components/embed/.content.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Embed"
+    sling:resourceSuperType="core/wcm/components/embed/v1/embed"
+    componentGroup="bp - Content"/>
+```
+
+/apps/bp/components/embed/_cq_dialog/.content.xml
+``` 
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Embed"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[core.wcm.components.embed.v1.editor]"
+    helpPath="https://www.adobe.com/go/aem_cmp_embed_v1"
+    trackingFeature="core-components:embed:v1">
+    <content
+        granite:class="cmp-embed__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <video
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Video Path"
+                                                fieldLabel="Video"
+                                                name="./video"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
+
+```
+/apps/bp/components/embed/.content.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Embed"
+    sling:resourceSuperType="core/wcm/components/embed/v1/embed"
+    componentGroup="bp - Content"/>
+```
+/apps/bp/components/embed/embeddable/.content.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Embeddable"
+    componentGroup=".hidden"/>
+```
+/apps/bp/components/embed/embeddable/video/.content.xml
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Component"
+    jcr:title="Video"
+    sling:resourceSuperType="core/wcm/components/embed/v1/embed/embeddable"
+    componentGroup=".hidden"/>
+```
+/apps/bp/components/embed/embeddable/video/video.xml
+```
+<section id="banner">
+	<div class="inner">
+	<h1>Industrious</h1>
+	<p>A responsive business oriented template with a video background<br />
+	designed by <a href="https://templated.co/">TEMPLATED</a> and released under the Creative Commons License.</p>
+	</div>
+<video data-sly-test="${properties.video}" autoplay loop muted playsinline src="${properties.video}"></video>
+</section>
+```
+
 _**Lesson Files**_
 1. [Lesson 5 AEM Content Package](dist/packages/Package-Lesson-5.zip)
 2. [Lesson 5 AEM Code Package](dist/packages/aem-guides-bp.all-0.0.2-SNAPSHOT.zip)
